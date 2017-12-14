@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import { searchTerm } from "../../actions";
 import { connect } from "react-redux";
 
-class Homepage extends Component {
+class SearchBar extends Component {
   // returns jsx for fields
   renderField(field) {
     return (
@@ -30,4 +30,4 @@ class Homepage extends Component {
 
 export default reduxForm({
   form: "SearchForm" // name of form, must be unique
-})(connect(null, { searchTerm })(Homepage));
+})(connect(null, { searchTerm })(SearchBar));
