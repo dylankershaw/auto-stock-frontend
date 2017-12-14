@@ -7,7 +7,7 @@ import ReactDOM from "react-dom";
 import React from "react";
 
 import reducers from "./reducers";
-import LoginPage from "./components/LoginPage";
+import Login from "./components/login";
 import "./index.css";
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
@@ -18,7 +18,7 @@ ReactDOM.render(
       <div>
         <Switch>
           {/* Switch renders only the first route that matches */}
-          <Route path="/login" component={LoginPage} />
+          <Route path="/login" component={Login} />
         </Switch>
       </div>
     </BrowserRouter>
