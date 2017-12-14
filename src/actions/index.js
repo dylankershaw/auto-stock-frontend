@@ -1,5 +1,6 @@
 import * as apiHelpers from "../api";
 
+// export const AUTHENTICATE_TOKEN = "AUTHENTICATE_TOKEN";
 export const LOGIN_USER = "LOGIN_USER";
 export const SIGNUP_USER = "SIGNUP_USER";
 export const SEARCH_TERM = "SEARCH_TERM";
@@ -18,10 +19,17 @@ export function loginUser(values) {
       }
     });
   };
+}
 
-  return {
-    type: LOGIN_USER,
-    payload: values
+export function authenticateToken(token) {
+  return function(dispatch) {
+    apiHelpers.checkToken(token).then(data => {
+      if (!data.error) {
+        return dispatch({ type: "LOGIN_USER", payload: data });
+      } else {
+        console.log("invalid token");
+      }
+    });
   };
 }
 
