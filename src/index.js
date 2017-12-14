@@ -6,6 +6,7 @@ import promise from "redux-promise";
 import ReactDOM from "react-dom";
 import React from "react";
 
+import Homepage from "./components/homepage";
 import Login from "./components/login";
 import reducers from "./reducers";
 import "./index.css";
@@ -17,7 +18,8 @@ ReactDOM.render(
     <BrowserRouter>
       <div>
         <Switch>
-          {/* Switch renders only the first route that matches */}
+          {/* Switch renders the first route that matches */}
+          <Route exact path="/" component={Homepage} />
           <Route path="/login" component={Login} />
         </Switch>
       </div>
