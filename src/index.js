@@ -1,21 +1,24 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import registerServiceWorker from "./registerServiceWorker";
 import { createStore, applyMiddleware } from "redux";
-import { Provider } from "react-redux";
-import promise from "redux-promise";
 import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import thunk from "redux-thunk";
 import React from "react";
 
-import Searchbar from "./components/search/searchbar";
-import Login from "./components/user/login";
 import Signup from "./components/user/signup";
+import Searchbar from "./components/search/searchbar";
 import reducers from "./reducers";
+import Login from "./components/user/login";
 import "./index.css";
 
-const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
+// const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
+const middleware = [thunk];
+
+const store = createStore(reducers, applyMiddleware(...middleware));
 
 ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
+  <Provider store={store}>
     <BrowserRouter>
       <div>
         <Switch>
