@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import { signupUser } from "../../actions";
 import { connect } from "react-redux";
 
-class Login extends Component {
+class SignupForm extends Component {
   // returns jsx for fields
   renderField(field) {
     return (
@@ -32,4 +32,4 @@ class Login extends Component {
 
 export default reduxForm({
   form: "SignupForm" // name of form, must be unique
-})(connect(null, { signupUser })(Login));
+})(connect(null, { signupUser })(SignupForm));

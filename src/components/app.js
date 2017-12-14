@@ -1,12 +1,13 @@
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { authenticateToken } from "../actions";
+import Searchbar from "./search/searchbar";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Searchbar from "./search/searchbar";
 import Signup from "./user/signup";
-import Login from "./user/login";
-import { authenticateToken } from "../actions";
+import LoginContainer from "./user/login_container";
 
 class App extends Component {
+  // checks localStorage token on every component mount to set user if applicable
   componentDidMount() {
     const token = localStorage.getItem("token");
     // console.log("component mounted, user:", this.props.user);
@@ -29,7 +30,7 @@ class App extends Component {
           <Switch>
             {/* Switch renders the first route that matches */}
             <Route exact path="/" component={Searchbar} />
-            <Route path="/login" component={Login} />
+            <Route path="/login" component={LoginContainer} />
             <Route path="/signup" component={Signup} />
           </Switch>
         </div>

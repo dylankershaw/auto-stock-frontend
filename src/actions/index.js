@@ -10,12 +10,10 @@ export function loginUser(values) {
     // dispatch({ type: "START_LOGIN_USER" }); //// uncomment this if using a loading bar
     apiHelpers.login(values).then(data => {
       if (!data.error) {
-        console.log("valid login");
         localStorage.setItem("token", data["token"]);
         return dispatch({ type: "LOGIN_USER", payload: data });
       } else {
         console.log("invalid login");
-        //// tell user their login is invalid
       }
     });
   };

@@ -3,9 +3,8 @@ import { Field, reduxForm } from "redux-form";
 import React, { Component } from "react";
 import { loginUser } from "../../actions";
 import { connect } from "react-redux";
-import Navbar from "./navbar";
 
-class Login extends Component {
+class LoginForm extends Component {
   // returns jsx for fields
   renderField(field) {
     return (
@@ -23,7 +22,6 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <Navbar />
         <Form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}>
           <Field
             label="Username"
@@ -44,4 +42,4 @@ class Login extends Component {
 
 export default reduxForm({
   form: "LoginForm" // name of form, must be unique
-})(connect(null, { loginUser })(Login));
+})(connect(null, { loginUser })(LoginForm));
