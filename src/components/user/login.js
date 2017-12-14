@@ -1,6 +1,7 @@
+import { Button, Form } from "semantic-ui-react";
 import { Field, reduxForm } from "redux-form";
 import React, { Component } from "react";
-import { loginUser } from "../actions";
+import { loginUser } from "../../actions";
 import { connect } from "react-redux";
 
 class Login extends Component {
@@ -20,11 +21,11 @@ class Login extends Component {
 
   render() {
     return (
-      <form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}>
+      <Form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}>
         <Field label="Username" name="username" component={this.renderField} />
         <Field label="Password" name="password" component={this.renderField} />
-        <button type="submit">Submit</button>
-      </form>
+        <Button type="submit">Log In</Button>
+      </Form>
     );
   }
 }

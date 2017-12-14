@@ -1,9 +1,17 @@
 export const LOGIN_USER = "LOGIN_USER";
+export const SIGNUP_USER = "SIGNUP_USER";
 export const SEARCH_TERM = "SEARCH_TERM";
 
 export function loginUser(values) {
   return {
     type: LOGIN_USER,
+    payload: values // payload should be the resp from an axios request
+  };
+}
+
+export function signupUser(values) {
+  return {
+    type: SIGNUP_USER,
     payload: values // payload should be the resp from an axios request
   };
 }

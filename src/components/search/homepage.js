@@ -1,6 +1,7 @@
+import { Button, Form } from "semantic-ui-react";
 import { Field, reduxForm } from "redux-form";
 import React, { Component } from "react";
-import { searchTerm } from "../actions";
+import { searchTerm } from "../../actions";
 import { connect } from "react-redux";
 
 class Homepage extends Component {
@@ -19,9 +20,10 @@ class Homepage extends Component {
 
   render() {
     return (
-      <form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}>
+      <Form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}>
         <Field name="searchTerm" component={this.renderField} />
-      </form>
+        <Button type="submit">Submit Search</Button>
+      </Form>
     );
   }
 }
