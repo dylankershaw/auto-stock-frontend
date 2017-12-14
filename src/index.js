@@ -6,8 +6,8 @@ import promise from "redux-promise";
 import ReactDOM from "react-dom";
 import React from "react";
 
-import reducers from "./reducers";
 import Login from "./components/login";
+import reducers from "./reducers";
 import "./index.css";
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);

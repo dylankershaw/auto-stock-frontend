@@ -1,7 +1,7 @@
 import { Field, reduxForm } from "redux-form";
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import { loginUser } from "../actions";
+import { connect } from "react-redux";
 
 class Login extends Component {
   // returns jsx for fields
@@ -15,15 +15,12 @@ class Login extends Component {
   }
 
   onSubmit(values) {
-    // this.props.login(values); //// CREATE A LOGIN ACTION
-    console.log(values);
+    this.props.loginUser(values);
   }
 
   render() {
-    const { handleSubmit } = this.props; // handleSubmit is available b/c of reduxForm
-
     return (
-      <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+      <form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}>
         <Field label="Username" name="username" component={this.renderField} />
         <Field label="Password" name="password" component={this.renderField} />
         <button type="submit">Submit</button>
