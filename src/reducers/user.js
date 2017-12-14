@@ -4,9 +4,11 @@ import { SIGNUP_USER } from "../actions";
 export default function(state = {}, action) {
   switch (action.type) {
     case LOGIN_USER:
-      console.log("hit login", action);
-      // debugger;
-      return { ...state, username: action.payload };
+      return {
+        ...state,
+        username: action.payload.username,
+        id: action.payload.id
+      };
     case SIGNUP_USER:
       return action.payload;
     default:

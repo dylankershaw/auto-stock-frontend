@@ -3,6 +3,7 @@ import { Field, reduxForm } from "redux-form";
 import React, { Component } from "react";
 import { loginUser } from "../../actions";
 import { connect } from "react-redux";
+import Navbar from "./navbar";
 
 class Login extends Component {
   // returns jsx for fields
@@ -21,11 +22,22 @@ class Login extends Component {
 
   render() {
     return (
-      <Form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}>
-        <Field label="Username" name="username" component={this.renderField} />
-        <Field label="Password" name="password" component={this.renderField} />
-        <Button type="submit">Log In</Button>
-      </Form>
+      <div>
+        <Navbar />
+        <Form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}>
+          <Field
+            label="Username"
+            name="username"
+            component={this.renderField}
+          />
+          <Field
+            label="Password"
+            name="password"
+            component={this.renderField}
+          />
+          <Button type="submit">Log In</Button>
+        </Form>
+      </div>
     );
   }
 }

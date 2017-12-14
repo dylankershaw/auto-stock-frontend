@@ -11,6 +11,7 @@ import Searchbar from "./components/search/searchbar";
 import reducers from "./reducers";
 import Login from "./components/user/login";
 import "./index.css";
+import App from "./components/app";
 
 // const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 const middleware = [thunk];
@@ -19,16 +20,7 @@ const store = createStore(reducers, applyMiddleware(...middleware));
 
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter>
-      <div>
-        <Switch>
-          {/* Switch renders the first route that matches */}
-          <Route exact path="/" component={Searchbar} />
-          <Route path="/login" component={Login} />
-          <Route path="/signup" component={Signup} />
-        </Switch>
-      </div>
-    </BrowserRouter>
+    <App />
   </Provider>,
   document.getElementById("root")
 );
