@@ -3,9 +3,9 @@ import { Field, reduxForm } from "redux-form";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { loginUser } from "../../actions";
+import { uploadImage } from "../../actions";
 
-class LoginForm extends Component {
+class UploadForm extends Component {
   // returns jsx for fields
   renderField(field) {
     return (
@@ -17,30 +17,25 @@ class LoginForm extends Component {
   }
 
   onSubmit(values) {
-    this.props.loginUser(values);
+    this.props.uploadImage(values.url, this.props.user.id);
   }
 
   render() {
     return (
       <div>
         <Form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}>
-          <Field
-            label="Username"
-            name="username"
-            component={this.renderField}
-          />
-          <Field
-            label="Password"
-            name="password"
-            component={this.renderField}
-          />
-          <Button type="submit">Log In</Button>
+          <Field label="URL" name="url" component={this.renderField} />
+          <Button type="submit">Upload</Button>
         </Form>
       </div>
     );
   }
 }
 
+function mapStateToProps({ user }) {
+  return { user };
+}
+
 export default reduxForm({
-  form: "LoginForm" // name of form, must be unique
-})(connect(null, { loginUser })(LoginForm));
+  form: "UploadForm" // name of form, must be unique
+})(connect(mapStateToProps, { uploadImage })(UploadForm));

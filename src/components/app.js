@@ -1,10 +1,12 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { authenticateToken } from "../actions";
-import Searchbar from "./search/searchbar";
 import React, { Component } from "react";
 import { connect } from "react-redux";
+
+import UploadContainer from "./image/upload_container";
 import SignupContainer from "./user/signup_container";
 import LoginContainer from "./user/login_container";
+import Homepage from "./search/homepage";
 
 class App extends Component {
   // checks localStorage token on every component mount to set user if applicable
@@ -29,9 +31,10 @@ class App extends Component {
         <div>
           <Switch>
             {/* Switch renders the first route that matches */}
-            <Route exact path="/" component={Searchbar} />
+            <Route exact path="/" component={Homepage} />
             <Route path="/login" component={LoginContainer} />
             <Route path="/signup" component={SignupContainer} />
+            <Route path="/upload" component={UploadContainer} />
           </Switch>
         </div>
       </BrowserRouter>
@@ -39,6 +42,7 @@ class App extends Component {
   }
 }
 
+//// IS THIS NECESSARY?
 function mapStateToProps({ user }) {
   return { user };
 }

@@ -18,7 +18,18 @@ export function checkToken(token) {
       "Content-Type": "application/json"
     },
     method: "POST",
-    body: JSON.stringify({ token: token })
+    body: JSON.stringify({ token })
   }).then(res => res.json());
-  // .then(json => console.log(json));
+}
+
+// send url to image#create for processing
+export function postImage(url, userId) {
+  return fetch("http://localhost:3000/api/v1/images", {
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    },
+    method: "POST",
+    body: JSON.stringify({ url, userId })
+  }).then(res => res.json());
 }
