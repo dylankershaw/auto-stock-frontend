@@ -5,6 +5,7 @@ export const LOGIN_USER = "LOGIN_USER";
 export const SIGNUP_USER = "SIGNUP_USER";
 export const SEARCH_TERM = "SEARCH_TERM";
 export const UPLOAD_IMAGE_URL = "UPLOAD_IMAGE_URL";
+export const UPLOAD_IMAGE_FILE = "UPLOAD_IMAGE_FILE";
 
 export function loginUser(values) {
   return function(dispatch) {
@@ -48,9 +49,23 @@ export function searchTerm(values) {
 
 export function uploadImageUrl(url, userId) {
   return function(dispatch) {
-    apiHelpers.postImage(url, userId).then(data => {
+    apiHelpers.postImageUrl(url, userId).then(data => {
       console.log("uploadImage data:", data);
       return dispatch({ type: UPLOAD_IMAGE_URL, payload: data });
+    });
+    //// NEED TO CREATE REDUCER FOR THIS
+  };
+}
+
+export function uploadImageFile(data, userId) {
+  return function(dispatch) {
+    let body = new FormData();
+    Object.keys(data).forEach(key => {
+      body.append(key, data[key]);
+    });
+    apiHelpers.postImageFile(data, body, userId).then(data => {
+      console.log("data:", data);
+      // return dispatch({ type: UPLOAD_IMAGE_FILE, payload: data });
     });
     //// NEED TO CREATE REDUCER FOR THIS
   };

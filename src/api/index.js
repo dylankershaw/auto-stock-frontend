@@ -22,8 +22,8 @@ export function checkToken(token) {
   }).then(res => res.json());
 }
 
-// send url to image#create for processing
-export function postImage(url, userId) {
+// send image url to image#create for processing
+export function postImageUrl(url, userId) {
   return fetch("http://localhost:3000/api/v1/images", {
     headers: {
       Accept: "application/json",
@@ -31,5 +31,13 @@ export function postImage(url, userId) {
     },
     method: "POST",
     body: JSON.stringify({ url, userId })
+  }).then(res => res.json());
+}
+
+// send image file to image#create for processing
+export function postImageFile(data, body, userId) {
+  return fetch(`http://localhost:3000/api/v1/images`, {
+    method: "POST",
+    body: body
   }).then(res => res.json());
 }

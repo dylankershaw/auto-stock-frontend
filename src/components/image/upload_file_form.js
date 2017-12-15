@@ -2,40 +2,55 @@ import { Button, Form } from "semantic-ui-react";
 import { Field, reduxForm } from "redux-form";
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Dropzone from "react-dropzone";
 
-import { uploadImage } from "../../actions";
+import { uploadImageFile } from "../../actions";
+
+const FILE_FIELD_NAME = "files";
+
+const renderDropzoneInput = field => {
+  const files = field.input.value;
+  return (
+    <div>
+      <Dropzone
+        name={field.name}
+        onDrop={(filesToUpload, e) => field.input.onChange(filesToUpload)}
+      >
+        <div>Drop a file here.</div>
+      </Dropzone>
+      {field.meta.touched &&
+        field.meta.error && <span className="error">{field.meta.error}</span>}
+      {files &&
+        Array.isArray(files) && (
+          <ul>{files.map((file, i) => <li key={i}>{file.name}</li>)}</ul>
+        )}
+    </div>
+  );
+};
 
 class UploadFileForm extends Component {
-  // returns jsx for fields
-  renderField(field) {
-    return (
-      <div>
-        <label>{field.label}</label>
-        <input type="text" {...field.input} />
-      </div>
-    );
-  }
-
-  onSubmit(values) {
-    this.props.uploadImage(values.url, this.props.user.id);
+  onSubmit(data) {
+    //// NEED TO PASS IN USER ID
+    this.props.uploadImageFile(data);
   }
 
   render() {
+    const { handleSubmit, reset } = this.props;
     return (
-      <div>
-        <Form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}>
-          <Field label="URL" name="url" component={this.renderField} />
-          <Button type="submit">Upload</Button>
-        </Form>
-      </div>
+      <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+        <div>
+          <label htmlFor={FILE_FIELD_NAME}>Files</label>
+          <Field name={FILE_FIELD_NAME} component={renderDropzoneInput} />
+        </div>
+        <div>
+          <button type="submit">Submit</button>
+          <button onClick={reset}>Clear Values</button>
+        </div>
+      </form>
     );
   }
-}
-
-function mapStateToProps({ user }) {
-  return { user };
 }
 
 export default reduxForm({
   form: "UploadFileForm" // name of form, must be unique
-})(connect(mapStateToProps, { uploadImage })(UploadFileForm));
+})(connect(null, { uploadImageFile })(UploadFileForm));
