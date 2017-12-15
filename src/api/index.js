@@ -35,9 +35,10 @@ export function postImageUrl(url, userId) {
 }
 
 // send image file to image#create for processing
-export function postImageFile(data, body, userId) {
+export function postImageFile(image, userId) {
+  debugger;
   return fetch(`http://localhost:3000/api/v1/images`, {
     method: "POST",
-    body: body
+    body: image
   }).then(res => res.json());
 }
