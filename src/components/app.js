@@ -3,7 +3,7 @@ import { authenticateToken } from "../actions";
 import Searchbar from "./search/searchbar";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Signup from "./user/signup";
+import SignupContainer from "./user/signup_container";
 import LoginContainer from "./user/login_container";
 
 class App extends Component {
@@ -31,7 +31,7 @@ class App extends Component {
             {/* Switch renders the first route that matches */}
             <Route exact path="/" component={Searchbar} />
             <Route path="/login" component={LoginContainer} />
-            <Route path="/signup" component={Signup} />
+            <Route path="/signup" component={SignupContainer} />
           </Switch>
         </div>
       </BrowserRouter>

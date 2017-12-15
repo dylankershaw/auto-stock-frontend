@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import LoginForm from "./login_form";
-import Navbar from "./navbar";
+import UserNavbar from "./user_navbar";
 
 class LoginContainer extends Component {
   render() {
     return (
       <div>
-        <Navbar />
+        <UserNavbar currentContainer="login" />
         <LoginForm />
       </div>
     );
