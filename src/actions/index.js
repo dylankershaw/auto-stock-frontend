@@ -4,7 +4,7 @@ import * as apiHelpers from "../api";
 export const LOGIN_USER = "LOGIN_USER";
 export const SIGNUP_USER = "SIGNUP_USER";
 export const SEARCH_TERM = "SEARCH_TERM";
-export const UPLOAD_IMAGE = "UPLOAD_IMAGE";
+export const UPLOAD_IMAGE_URL = "UPLOAD_IMAGE_URL";
 
 export function loginUser(values) {
   return function(dispatch) {
@@ -46,11 +46,11 @@ export function searchTerm(values) {
   };
 }
 
-export function uploadImage(url, userId) {
+export function uploadImageUrl(url, userId) {
   return function(dispatch) {
     apiHelpers.postImage(url, userId).then(data => {
       console.log("uploadImage data:", data);
-      return dispatch({ type: UPLOAD_IMAGE, payload: data });
+      return dispatch({ type: UPLOAD_IMAGE_URL, payload: data });
     });
     //// NEED TO CREATE REDUCER FOR THIS
   };

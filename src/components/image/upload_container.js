@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
-import UploadForm from "./upload_form";
+import UploadFileForm from "./upload_file_form";
+import UploadURLForm from "./upload_url_form";
 import Navbar from "../navbar";
 
 class UploadContainer extends Component {
@@ -8,7 +9,8 @@ class UploadContainer extends Component {
     return (
       <div>
         <Navbar />
-        <UploadForm />
+        <UploadURLForm />
+        <UploadFileForm />
       </div>
     );
   }

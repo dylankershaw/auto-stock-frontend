@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 
 import { uploadImage } from "../../actions";
 
-class UploadForm extends Component {
+class UploadFileForm extends Component {
   // returns jsx for fields
   renderField(field) {
     return (
@@ -37,5 +37,5 @@ function mapStateToProps({ user }) {
 }
 
 export default reduxForm({
-  form: "UploadForm" // name of form, must be unique
-})(connect(mapStateToProps, { uploadImage })(UploadForm));
+  form: "UploadFileForm" // name of form, must be unique
+})(connect(mapStateToProps, { uploadImage })(UploadFileForm));
