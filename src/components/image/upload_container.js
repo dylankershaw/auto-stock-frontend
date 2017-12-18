@@ -10,7 +10,7 @@ class UploadContainer extends Component {
     return (
       <div>
         <Navbar />
-        <UploadURLForm />
+        {/* <UploadURLForm /> */}
         <UploadFileForm />
       </div>
     );

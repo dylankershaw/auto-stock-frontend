@@ -25,7 +25,7 @@ class UploadURLForm extends Component {
       <div>
         <Form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}>
           <Field label="URL" name="url" component={this.renderField} />
-          <Button type="submit">Upload</Button>
+          <Button type="submit">Submit</Button>
         </Form>
       </div>
     );

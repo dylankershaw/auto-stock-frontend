@@ -12,8 +12,7 @@ class App extends Component {
   // checks localStorage token on every component mount to set user if applicable
   componentDidMount() {
     const token = localStorage.getItem("token");
-    // console.log("component mounted, user:", this.props.user);
-    // console.log("token:", token);
+    //// MAYBE ONLY DO THIS IF THERE IS NOT A USER IN STORE TO PREVENT UNNECESSARY FETCHES?
     this.props.authenticateToken(token);
   }
 

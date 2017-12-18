@@ -8,6 +8,18 @@ export const SEARCH_TERM = "SEARCH_TERM";
 export const UPLOAD_IMAGE_URL = "UPLOAD_IMAGE_URL";
 export const UPLOAD_IMAGE_FILE = "UPLOAD_IMAGE_FILE";
 
+export function authenticateToken(token) {
+  return function(dispatch) {
+    apiHelpers.checkToken(token).then(data => {
+      if (!data.error) {
+        return dispatch({ type: LOGIN_USER, payload: data });
+      } else {
+        console.log("invalid token");
+      }
+    });
+  };
+}
+
 export function loginUser(values) {
   return function(dispatch) {
     // dispatch({ type: "START_LOGIN_USER" }); //// uncomment this if using a loading bar
@@ -17,18 +29,6 @@ export function loginUser(values) {
         return dispatch({ type: LOGIN_USER, payload: data });
       } else {
         console.log("invalid login");
-      }
-    });
-  };
-}
-
-export function authenticateToken(token) {
-  return function(dispatch) {
-    apiHelpers.checkToken(token).then(data => {
-      if (!data.error) {
-        return dispatch({ type: LOGIN_USER, payload: data });
-      } else {
-        console.log("invalid token");
       }
     });
   };
@@ -59,7 +59,6 @@ export function uploadImageUrl(url, userId) {
 }
 
 export function uploadImageFile(image, userId) {
-  debugger;
   return function(dispatch) {
     apiHelpers.postImageFile(image, userId).then(resp => {
       console.log("resp:", resp);
