@@ -1,11 +1,9 @@
 import * as apiHelpers from "../api";
 
-// export const AUTHENTICATE_TOKEN = "AUTHENTICATE_TOKEN";
 export const LOGIN_USER = "LOGIN_USER";
 export const SIGNUP_USER = "SIGNUP_USER";
 export const SEARCH_TERM = "SEARCH_TERM";
-export const UPLOAD_IMAGE_URL = "UPLOAD_IMAGE_URL";
-export const UPLOAD_IMAGE_FILE = "UPLOAD_IMAGE_FILE";
+export const UPLOAD_IMAGE = "UPLOAD_IMAGE";
 
 export function authenticateToken(token) {
   return function(dispatch) {
@@ -21,7 +19,6 @@ export function authenticateToken(token) {
 
 export function loginUser(values) {
   return function(dispatch) {
-    // dispatch({ type: "START_LOGIN_USER" }); //// uncomment this if using a loading bar
     apiHelpers.login(values).then(data => {
       if (!data.error) {
         localStorage.setItem("token", data["token"]);
@@ -48,21 +45,24 @@ export function searchTerm(values) {
 }
 
 export function uploadImageUrl(url, userId) {
+  // dispatch({ type: "START_LOADING_BAR" });
   return function(dispatch) {
     apiHelpers.postImageUrl(url, userId).then(data => {
       console.log("uploadImage data:", data);
-      return dispatch({ type: UPLOAD_IMAGE_URL, payload: data });
+      return dispatch({ type: UPLOAD_IMAGE, payload: data });
     });
-    //// NEED TO CREATE REDUCER FOR THIS
   };
 }
 
 export function uploadImageFile(image, userId) {
+  // dispatch({ type: "START_LOADING_BAR" });
   return function(dispatch) {
     apiHelpers.postImageFile(image, userId).then(resp => {
       console.log("resp:", resp);
-      // return dispatch({ type: UPLOAD_IMAGE_FILE, payload: resp });
+      return dispatch({
+        type: UPLOAD_IMAGE,
+        payload: resp
+      });
     });
-    //// NEED TO CREATE REDUCER FOR THIS
   };
 }
