@@ -20,8 +20,7 @@ class UploadContainer extends Component {
     } else {
       return (
         <div>
-          <Navbar />
-          <UploadComplete image={this.props.image} />
+          <UploadComplete />
         </div>
       );
     }
