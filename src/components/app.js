@@ -41,7 +41,6 @@ class App extends Component {
   }
 }
 
-//// IS THIS NECESSARY?
 function mapStateToProps({ user }) {
   return { user };
 }

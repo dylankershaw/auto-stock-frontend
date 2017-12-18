@@ -1,19 +1,14 @@
-import { Button, Form } from "semantic-ui-react";
-import { Field, reduxForm } from "redux-form";
+import { Button } from "semantic-ui-react";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Dropzone from "react-dropzone";
 import ReactFileReader from "react-file-reader";
 
 import { uploadImageFile } from "../../actions";
 
-const FILE_FIELD_NAME = "files";
-
 class UploadFileForm extends Component {
   handleImage = image => {
-    //// NEED TO PASS IN USER ID
     // passes in only the first file (if there are multiple)
-    this.props.uploadImageFile(image);
+    this.props.uploadImageFile(image, this.props.user.id);
   };
 
   render() {
@@ -30,4 +25,8 @@ class UploadFileForm extends Component {
   }
 }
 
-export default connect(null, { uploadImageFile })(UploadFileForm);
+function mapStateToProps({ user }) {
+  return { user };
+}
+
+export default connect(mapStateToProps, { uploadImageFile })(UploadFileForm);

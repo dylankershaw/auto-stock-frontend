@@ -42,6 +42,6 @@ export function postImageFile(image_io, userId) {
       "Content-Type": "application/json"
     },
     method: "POST",
-    body: JSON.stringify({ image_io })
+    body: JSON.stringify({ image_io, userId })
   }).then(res => res.json());
 }

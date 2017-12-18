@@ -1,4 +1,3 @@
-import ReactFileReader from "react-file-reader";
 import React, { Component } from "react";
 
 import UploadFileForm from "./upload_file_form";

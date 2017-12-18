@@ -1,4 +1,3 @@
-import ReactFileReader from "react-file-reader";
 import * as apiHelpers from "../api";
 
 // export const AUTHENTICATE_TOKEN = "AUTHENTICATE_TOKEN";
@@ -62,7 +61,7 @@ export function uploadImageFile(image, userId) {
   return function(dispatch) {
     apiHelpers.postImageFile(image, userId).then(resp => {
       console.log("resp:", resp);
-      // return dispatch({ type: UPLOAD_IMAGE_FILE, payload: data });
+      // return dispatch({ type: UPLOAD_IMAGE_FILE, payload: resp });
     });
     //// NEED TO CREATE REDUCER FOR THIS
   };
