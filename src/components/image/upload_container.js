@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
 
+import ImageNavbar from "../navigation/image_navbar";
+import AuthNavbar from "../navigation/auth_navbar";
 import UploadFileForm from "./upload_file_form";
 import UploadComplete from "./upload_complete";
 import UploadURLForm from "./upload_url_form";
-import AuthNavbar from "../navigation/auth_navbar";
 
 class UploadContainer extends Component {
   render() {
@@ -13,6 +14,7 @@ class UploadContainer extends Component {
       return (
         <div>
           <AuthNavbar />
+          <ImageNavbar currentContainer="upload" />
           {/* <UploadURLForm /> */}
           <UploadFileForm />
         </div>

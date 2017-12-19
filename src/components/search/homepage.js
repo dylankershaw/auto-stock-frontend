@@ -2,15 +2,17 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
 
+import ImageNavbar from "../navigation/image_navbar";
+import AuthNavbar from "../navigation/auth_navbar";
 import ResultsContainer from "./results_container";
 import SearchBar from "./search_bar";
-import AuthNavbar from "../navigation/auth_navbar";
 
 class Homepage extends Component {
   render() {
     return (
       <div>
         <AuthNavbar />
+        <ImageNavbar currentContainer="homepage" />
         <SearchBar />
         {/* renders ResultsContainer if a search returns results w/o error */}
         {(() => {
