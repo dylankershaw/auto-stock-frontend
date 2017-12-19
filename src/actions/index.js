@@ -1,9 +1,10 @@
 import * as apiHelpers from "../api";
 
 export const LOGIN_USER = "LOGIN_USER";
+export const LOGOUT_USER = "LOGOUT_USER";
 export const SIGNUP_USER = "SIGNUP_USER";
-export const SUBMIT_SEARCH = "SUBMIT_SEARCH";
 export const UPLOAD_IMAGE = "UPLOAD_IMAGE";
+export const SUBMIT_SEARCH = "SUBMIT_SEARCH";
 
 export function authenticateToken(token) {
   return function(dispatch) {
@@ -34,6 +35,13 @@ export function signupUser(values) {
   return {
     type: SIGNUP_USER,
     payload: values
+  };
+}
+
+export function logoutUser() {
+  localStorage.setItem("token", "");
+  return {
+    type: LOGOUT_USER
   };
 }
 

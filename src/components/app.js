@@ -1,7 +1,8 @@
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { authenticateToken } from "../actions";
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import _ from "lodash";
 
 import UploadContainer from "./image/upload_container";
 import SignupContainer from "./user/signup_container";
@@ -9,30 +10,37 @@ import LoginContainer from "./user/login_container";
 import Homepage from "./search/homepage";
 
 class App extends Component {
-  // checks localStorage token on every component mount to set user if applicable
+  // checks localStorage token to set user if applicable
   componentDidMount() {
     const token = localStorage.getItem("token");
-    //// MAYBE ONLY DO THIS IF THERE IS NOT A USER IN STORE TO PREVENT UNNECESSARY FETCHES?
-    this.props.authenticateToken(token);
+    // only attempts authentication if there is a token
+    token.length ? this.props.authenticateToken(token) : null;
   }
 
-  // is this necessary? comment out for now if not.
-  // componentDidUpdate() {
-  //   const token = localStorage.getItem("token");
-  //   // console.log("component updated, user:", this.props.user);
-  //   // console.log("token:", token);
-  //   this.props.authenticateToken(token);
-  // }
+  loggedIn = () => {
+    console.log(this.props.user);
+    console.log(!_.isEmpty(this.props.user));
+    return !_.isEmpty(this.props.user);
+  };
 
   render() {
     return (
       <BrowserRouter>
         <div>
           <Switch>
-            {/* Switch renders the first route that matches */}
             <Route exact path="/" component={Homepage} />
-            <Route path="/login" component={LoginContainer} />
-            <Route path="/signup" component={SignupContainer} />
+            <Route
+              path="/login"
+              render={() =>
+                this.loggedIn() ? <Redirect to="/" /> : <LoginContainer />
+              }
+            />
+            <Route
+              path="/signup"
+              render={() =>
+                this.loggedIn() ? <Redirect to="/" /> : <SignupContainer />
+              }
+            />
             <Route path="/upload" component={UploadContainer} />
           </Switch>
         </div>
