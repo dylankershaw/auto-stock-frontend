@@ -1,11 +1,11 @@
 import { Button, Form } from "semantic-ui-react";
 import { Field, reduxForm } from "redux-form";
 import React, { Component } from "react";
-import { signupUser } from "../../actions";
 import { connect } from "react-redux";
 
+import { signupUser } from "../../actions";
+
 class SignupForm extends Component {
-  // returns jsx for fields
   renderField(field) {
     return (
       <div>

@@ -13,13 +13,11 @@ class App extends Component {
   // checks localStorage token to set user if applicable
   componentDidMount() {
     const token = localStorage.getItem("token");
-    // only attempts authentication if there is a token
+    // attempts authentication if there is a token
     token.length ? this.props.authenticateToken(token) : null;
   }
 
   loggedIn = () => {
-    console.log(this.props.user);
-    console.log(!_.isEmpty(this.props.user));
     return !_.isEmpty(this.props.user);
   };
 

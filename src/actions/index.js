@@ -22,7 +22,7 @@ export function loginUser(values) {
   return function(dispatch) {
     apiHelpers.login(values).then(data => {
       if (!data.error) {
-        localStorage.setItem("token", data["token"]);
+        localStorage.setItem("token", data.token);
         return dispatch({ type: LOGIN_USER, payload: data });
       } else {
         console.log("invalid login");
@@ -32,9 +32,14 @@ export function loginUser(values) {
 }
 
 export function signupUser(values) {
-  return {
-    type: SIGNUP_USER,
-    payload: values
+  return function(dispatch) {
+    apiHelpers.signup(values).then(data => {
+      localStorage.setItem("token", data.token);
+      return dispatch({
+        type: SIGNUP_USER,
+        payload: { id: data.id, username: data.username }
+      });
+    });
   };
 }
 
