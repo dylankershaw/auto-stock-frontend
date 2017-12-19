@@ -15,7 +15,7 @@ class SearchBar extends Component {
   }
 
   onSubmit(values) {
-    this.props.searchTerm(values);
+    this.props.searchTerm(values.searchTerm);
   }
 
   render() {

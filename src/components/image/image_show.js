@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import Label from "../label/label.js";
+import Label from "../label.js";
 
 class ImageShow extends Component {
   // iterates through each imageLabel to find the one associated with a given label, and returns its score

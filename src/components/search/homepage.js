@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import Searchbar from "./searchbar";
+
+import ResultsContainer from "./results_container";
+import SearchBar from "./search_bar";
 import Navbar from "../navbar";
 
 class Homepage extends Component {
@@ -7,7 +9,8 @@ class Homepage extends Component {
     return (
       <div>
         <Navbar />
-        <Searchbar />
+        <SearchBar />
+        {<ResultsContainer />} {/* render if !results.empty?} */}
       </div>
     );
   }

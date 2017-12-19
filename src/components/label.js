@@ -4,7 +4,7 @@ const Label = ({ name, score }) => {
   console.log(name, score);
   return (
     <div>
-      {name}: {score}
+      {name}: {Math.round(score * 100)}
     </div>
   );
 };

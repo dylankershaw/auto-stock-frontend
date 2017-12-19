@@ -1,13 +1,11 @@
-import { SEARCH_TERM } from "../actions";
+import { SUBMIT_SEARCH } from "../actions";
 
-export default function(state = { searchTerm: "", results: [] }, action) {
+export default function(state = { results: [] }, action) {
   switch (action.type) {
-    case SEARCH_TERM:
+    case SUBMIT_SEARCH:
       return {
-        searchTerm: action.payload,
-        ...state
+        results: action.payload
       };
-    // case SEARCH_RESULTS:
     default:
       return state;
   }

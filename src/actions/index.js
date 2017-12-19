@@ -2,7 +2,7 @@ import * as apiHelpers from "../api";
 
 export const LOGIN_USER = "LOGIN_USER";
 export const SIGNUP_USER = "SIGNUP_USER";
-export const SEARCH_TERM = "SEARCH_TERM";
+export const SUBMIT_SEARCH = "SUBMIT_SEARCH";
 export const UPLOAD_IMAGE = "UPLOAD_IMAGE";
 
 export function authenticateToken(token) {
@@ -37,10 +37,11 @@ export function signupUser(values) {
   };
 }
 
-export function searchTerm(values) {
-  return {
-    type: SEARCH_TERM,
-    payload: values.searchTerm
+export function searchTerm(term) {
+  return function(dispatch) {
+    apiHelpers.getSearchResults(term).then(data => {
+      return dispatch({ type: SUBMIT_SEARCH, payload: data });
+    });
   };
 }
 

@@ -22,7 +22,7 @@ export function checkToken(token) {
   }).then(res => res.json());
 }
 
-// send image url to image#create for processing
+// sends image url to image#create and returns associated labels
 export function postImageUrl(url, userId) {
   return fetch("http://localhost:3000/api/v1/images", {
     headers: {
@@ -34,7 +34,7 @@ export function postImageUrl(url, userId) {
   }).then(res => res.json());
 }
 
-// send image file to image#create for processing
+// sends image file to image#create and returns associated labels
 export function postImageFile(image_io, userId) {
   return fetch(`http://localhost:3000/api/v1/images`, {
     headers: {
@@ -43,5 +43,17 @@ export function postImageFile(image_io, userId) {
     },
     method: "POST",
     body: JSON.stringify({ image_io, userId })
+  }).then(res => res.json());
+}
+
+// sends searchTerm to search#show and returns associated images
+export function getSearchResults(term) {
+  return fetch("http://localhost:3000/api/v1/search", {
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    },
+    method: "POST",
+    body: JSON.stringify({ term })
   }).then(res => res.json());
 }
