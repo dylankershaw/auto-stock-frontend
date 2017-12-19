@@ -6,7 +6,6 @@ import ImageShow from "./image_show";
 const UploadComplete = ({ image }) => {
   return (
     <div>
-      <AuthNavbar />
       UPLOAD COMPLETE
       <ImageShow />
     </div>

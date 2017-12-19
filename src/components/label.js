@@ -1,10 +1,17 @@
 import React from "react";
+import { Progress } from "semantic-ui-react";
 
-const Label = ({ name, score }) => {
-  console.log(name, score);
+const Label = ({ score, name }) => {
+  // Math.round(score * 100);
   return (
-    <div>
-      {name}: {Math.round(score * 100)}
+    <div style={{ width: "250px" }}>
+      <Progress
+        value={Math.round(score * 100)}
+        total="100"
+        progress="percent"
+        color="green"
+        label={name}
+      />
     </div>
   );
 };

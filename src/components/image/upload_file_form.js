@@ -1,7 +1,7 @@
+import ReactFileReader from "react-file-reader";
 import { Button } from "semantic-ui-react";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import ReactFileReader from "react-file-reader";
 
 import { uploadImageFile } from "../../actions";
 
@@ -19,7 +19,7 @@ class UploadFileForm extends Component {
         base64={true}
         multipleFiles={false}
       >
-        <button className="btn">Upload</button>
+        <Button className="btn">Upload</Button>
       </ReactFileReader>
     );
   }

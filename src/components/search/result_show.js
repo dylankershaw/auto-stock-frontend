@@ -1,9 +1,10 @@
 import React from "react";
+import Label from "../label.js";
 
 const ResultShow = ({ result }) => (
   <div>
     <img alt="" src={result.url} width="250" />
-    {Math.round(result.score * 100)}
+    <Label score={result.score} />
   </div>
 );
 

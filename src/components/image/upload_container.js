@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import _ from "lodash";
 
@@ -22,6 +23,12 @@ class UploadContainer extends Component {
     } else {
       return (
         <div>
+          <div>
+            <Link to="/upload">UPLOAD ANOTHER IMAGE</Link>
+            <br />
+            <Link to="/">SEARCH IMAGES</Link>
+          </div>
+          <AuthNavbar />
           <UploadComplete />
         </div>
       );

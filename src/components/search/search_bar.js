@@ -22,7 +22,7 @@ class SearchBar extends Component {
     return (
       <Form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}>
         <Field name="searchTerm" component={this.renderField} />
-        <Button type="submit">Submit Search</Button>
+        <Button type="submit">Submit</Button>
       </Form>
     );
   }
