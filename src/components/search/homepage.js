@@ -12,10 +12,16 @@ class Homepage extends Component {
       <div>
         <Navbar />
         <SearchBar />
-        {/* renders ResultsContainer if a search returns results */}
-        {!_.isEmpty(this.props.results) ? (
-          <ResultsContainer results={this.props.results} />
-        ) : null}
+        {/* renders ResultsContainer if a search returns results w/o error */}
+        {(() => {
+          if (!_.isEmpty(this.props.results)) {
+            if (!this.props.results.error) {
+              return <ResultsContainer results={this.props.results} />;
+            } else {
+              return <div>No Images Found</div>;
+            }
+          }
+        })()}
       </div>
     );
   }
