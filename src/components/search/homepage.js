@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import _ from "lodash";
 
 import ResultsContainer from "./results_container";
 import SearchBar from "./search_bar";
@@ -10,10 +12,17 @@ class Homepage extends Component {
       <div>
         <Navbar />
         <SearchBar />
-        {<ResultsContainer />} {/* render if !results.empty?} */}
+        {/* renders ResultsContainer if a search returns results */}
+        {!_.isEmpty(this.props.results) ? (
+          <ResultsContainer results={this.props.results} />
+        ) : null}
       </div>
     );
   }
 }
 
-export default Homepage;
+function mapStateToProps({ search }) {
+  return { results: search.results };
+}
+
+export default connect(mapStateToProps)(Homepage);

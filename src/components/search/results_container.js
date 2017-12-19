@@ -1,10 +1,11 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React from "react";
+import ResultShow from "./result_show";
 
-class ResultsContainer extends Component {
-  render() {
-    return <div>ResultsContainer</div>;
-  }
-}
+const ResultsContainer = ({ results }) => (
+  <div>
+    {console.log(results)}
+    {results.map(result => <ResultShow key={result.id} result={result} />)}
+  </div>
+);
 
-export default connect()(ResultsContainer);
+export default ResultsContainer;
