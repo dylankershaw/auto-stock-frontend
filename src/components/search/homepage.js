@@ -4,13 +4,13 @@ import _ from "lodash";
 
 import ResultsContainer from "./results_container";
 import SearchBar from "./search_bar";
-import Navbar from "../navbar";
+import AuthNavbar from "../navigation/auth_navbar";
 
 class Homepage extends Component {
   render() {
     return (
       <div>
-        <Navbar />
+        <AuthNavbar />
         <SearchBar />
         {/* renders ResultsContainer if a search returns results w/o error */}
         {(() => {

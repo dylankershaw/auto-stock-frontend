@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { logoutUser } from "../actions";
+import { logoutUser } from "../../actions";
 
-class Navbar extends Component {
+class AuthNavbar extends Component {
   onLogout = () => {
     this.props.logoutUser();
   };
@@ -32,4 +32,4 @@ function mapStateToprops({ user }) {
   return { user };
 }
 
-export default connect(mapStateToprops, { logoutUser })(Navbar);
+export default connect(mapStateToprops, { logoutUser })(AuthNavbar);

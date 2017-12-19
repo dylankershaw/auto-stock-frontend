@@ -1,12 +1,12 @@
 import React from "react";
 
-import Navbar from "../navbar";
+import AuthNavbar from "../navigation/auth_navbar";
 import ImageShow from "./image_show";
 
 const UploadComplete = ({ image }) => {
   return (
     <div>
-      <Navbar />
+      <AuthNavbar />
       UPLOAD COMPLETE
       <ImageShow />
     </div>
