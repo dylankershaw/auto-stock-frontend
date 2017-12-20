@@ -24,9 +24,9 @@ class UploadContainer extends Component {
       return (
         <div>
           <div>
-            <Link to="/upload">UPLOAD ANOTHER IMAGE</Link>
+            <Link to="/upload">{"< UPLOAD ANOTHER IMAGE"}</Link>
             <br />
-            <Link to="/">SEARCH IMAGES</Link>
+            <Link to="/">{"< SEARCH IMAGES"}</Link>
           </div>
           <AuthNavbar />
           <UploadComplete />
