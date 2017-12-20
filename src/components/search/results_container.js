@@ -1,4 +1,6 @@
+import { connect } from "react-redux";
 import React from "react";
+
 import ResultShow from "./result_show";
 
 const ResultsContainer = ({ results }) => (
@@ -7,4 +9,8 @@ const ResultsContainer = ({ results }) => (
   </div>
 );
 
-export default ResultsContainer;
+function mapStateToProps({ search }) {
+  return { results: search.results };
+}
+
+export default connect(mapStateToProps)(ResultsContainer);

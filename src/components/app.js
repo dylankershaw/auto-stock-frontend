@@ -5,10 +5,11 @@ import { connect } from "react-redux";
 import _ from "lodash";
 
 import ImageShowContainer from "./image/image_show_container";
+import SearchContainer from "./search/search_container";
 import UploadContainer from "./image/upload_container";
 import SignupContainer from "./user/signup_container";
+import SearchNavbar from "./navigation/search_navbar";
 import LoginContainer from "./user/login_container";
-import Homepage from "./search/homepage";
 
 class App extends Component {
   // checks localStorage token to set user if applicable
@@ -27,7 +28,7 @@ class App extends Component {
       <BrowserRouter>
         <div>
           <Switch>
-            <Route exact path="/" component={Homepage} />
+            <Route exact path="/" component={SearchNavbar} />
             <Route
               path="/login"
               render={() =>
@@ -42,6 +43,7 @@ class App extends Component {
             />
             <Route path="/upload" component={UploadContainer} />
             <Route path="/images/:id" component={ImageShowContainer} />
+            <Route path="/search/:searchTerm" component={SearchContainer} />
           </Switch>
         </div>
       </BrowserRouter>
