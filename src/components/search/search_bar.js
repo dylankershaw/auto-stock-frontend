@@ -1,8 +1,9 @@
 import { Button, Form } from "semantic-ui-react";
 import { Field, reduxForm } from "redux-form";
 import React, { Component } from "react";
-import { searchTerm } from "../../actions";
 import { connect } from "react-redux";
+
+import { submitSearch } from "../../actions";
 
 class SearchBar extends Component {
   // returns jsx for fields
@@ -15,7 +16,7 @@ class SearchBar extends Component {
   }
 
   onSubmit(values) {
-    this.props.searchTerm(values.searchTerm);
+    this.props.submitSearch(values.searchTerm);
   }
 
   render() {
@@ -30,4 +31,4 @@ class SearchBar extends Component {
 
 export default reduxForm({
   form: "SearchForm" // name of form, must be unique
-})(connect(null, { searchTerm })(SearchBar));
+})(connect(null, { submitSearch })(SearchBar));

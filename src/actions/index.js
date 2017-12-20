@@ -50,11 +50,12 @@ export function logoutUser() {
   };
 }
 
-export function searchTerm(term) {
+export function submitSearch(term) {
   return function(dispatch) {
     apiHelpers.getSearchResults(term).then(data => {
       return dispatch({ type: SUBMIT_SEARCH, payload: data });
     });
+    console.log(history);
   };
 }
 
