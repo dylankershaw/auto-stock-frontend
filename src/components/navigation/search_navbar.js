@@ -12,7 +12,7 @@ class SearchNavbar extends Component {
     return (
       <div>
         <AuthNavbar />
-        <ImageNavbar currentContainer="homepage" />
+        <ImageNavbar currentContainer="search" />
         <SearchBar />
       </div>
     );

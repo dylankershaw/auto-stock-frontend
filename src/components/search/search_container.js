@@ -7,14 +7,10 @@ import ResultsContainer from "./results_container";
 import { submitSearch } from "../../actions";
 
 class SearchContainer extends React.Component {
-  componentWillReceiveProps(nextProps) {
-    let searchTerm = this.props.match.params.searchTerm;
-    let nextSearchTerm = nextProps.match.params.searchTerm;
-    // prevents infinite loop of submitSearch()s and ensures searches trigger render new results
-    if (nextProps.results.length === 0 || searchTerm !== nextSearchTerm) {
-      searchTerm = nextSearchTerm;
-      this.props.submitSearch(searchTerm);
-    }
+  // renders results when user manually inputs url
+  componentDidMount() {
+    const searchTerm = this.props.match.params.searchTerm;
+    this.props.submitSearch(searchTerm);
   }
 
   render() {
@@ -22,7 +18,6 @@ class SearchContainer extends React.Component {
       return (
         <div>
           <SearchNavbar />
-          Loading Images...
         </div>
       );
     } else {

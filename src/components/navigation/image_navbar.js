@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 class ImageNavbar extends Component {
   render() {
-    if (this.props.currentContainer === "homepage") {
+    if (this.props.currentContainer === "search") {
       return (
         <div>
           <strong>SEARCH</strong> | <Link to="/upload">UPLOAD</Link>
