@@ -8,9 +8,7 @@ import ImageShow from "./image_show";
 
 class ImageShowContainer extends React.Component {
   componentDidMount() {
-    console.log("imageshowcontainer props:", this.props.match.params.id); //// USE INSTEAD OF location; make INTEGER
-    const imageId = this.props.location.pathname.split("/images/")[1];
-    this.props.showImage(imageId);
+    this.props.showImage(this.props.match.params.id);
   }
 
   render() {

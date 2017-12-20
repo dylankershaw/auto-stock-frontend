@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import _ from "lodash";
 
 import ImageShowContainer from "./image/image_show_container";
+import UserShowContainer from "./user/user_show_container";
 import SearchContainer from "./search/search_container";
 import UploadContainer from "./image/upload_container";
 import SignupContainer from "./user/signup_container";
@@ -42,6 +43,7 @@ class App extends Component {
               }
             />
             <Route path="/upload" component={UploadContainer} />
+            <Route path="/users/:id" component={UserShowContainer} />
             <Route path="/images/:id" component={ImageShowContainer} />
             <Route path="/search/:searchTerm" component={SearchContainer} />
           </Switch>

@@ -7,13 +7,13 @@ import { connect } from "react-redux";
 import { submitSearch } from "../../actions";
 
 class SearchBar extends Component {
-  renderField(field) {
+  renderField = field => {
     return (
       <div>
-        <input type="text" {...field.input} />
+        <input placeholder="enter a keyword..." type="text" {...field.input} />
       </div>
     );
-  }
+  };
 
   onSubmit(values) {
     this.props.history.push(`/search/${values.searchTerm}`);
@@ -24,7 +24,7 @@ class SearchBar extends Component {
     return (
       <Form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}>
         <Field name="searchTerm" component={this.renderField} />
-        <Button type="submit">Submit</Button>
+        <Button type="submit">Search</Button>
       </Form>
     );
   }

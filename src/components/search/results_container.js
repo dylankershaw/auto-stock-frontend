@@ -5,7 +5,13 @@ import ResultShow from "./result_show";
 
 const ResultsContainer = ({ results }) => (
   <div>
-    {results.map(result => <ResultShow key={result.id} result={result} />)}
+    {results.length > 0 ? (
+      results.map(result => <ResultShow key={result.id} result={result} />)
+    ) : (
+      <div>
+        <br />No results found. Try another keyword.
+      </div>
+    )}
   </div>
 );
 

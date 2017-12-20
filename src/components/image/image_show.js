@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import _ from "lodash";
 
 import Label from "../label.js";
 
@@ -12,27 +14,44 @@ class ImageShow extends Component {
   };
 
   render() {
-    return (
-      <div>
-        <img
-          alt={this.props.image.labels[0].name}
-          src={this.props.image.url}
-          width="250"
-        />
-        {this.props.image.labels.map(label => {
-          return (
-            <div key={label.id}>
-              <Label
-                score={this.findScore(label)}
-                name={label.name}
-                id={label.id}
-              />
-              <br />
-            </div>
-          );
-        })}
-      </div>
-    );
+    if (this.props.image.id) {
+      const imageUser = this.props.image.user;
+      return (
+        <div>
+          <div>
+            UPLOADED BY:{" "}
+            <Link to={`/users/${imageUser.id}`}>
+              {imageUser.username.toUpperCase()}
+            </Link>
+          </div>
+          <img
+            alt={this.props.image.labels[0].name}
+            src={this.props.image.url}
+            width="250"
+          />
+          {this.props.image.labels.map(label => {
+            return (
+              <div key={label.id}>
+                <Label
+                  score={this.findScore(label)}
+                  name={label.name}
+                  id={label.id}
+                />
+                <br />
+              </div>
+            );
+          })}
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <br />
+          Invalid image ID.<br />
+          <Link to="/">Return to homepage?</Link>
+        </div>
+      );
+    }
   }
 }
 
