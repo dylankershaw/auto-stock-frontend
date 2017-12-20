@@ -21,11 +21,10 @@ class ImageShow extends Component {
         />
         {this.props.image.labels.map(label => {
           return (
-            <div>
+            <div key={label.id}>
               <Label
                 score={this.findScore(label)}
                 name={label.name}
-                key={label.id}
                 id={label.id}
               />
               <br />
