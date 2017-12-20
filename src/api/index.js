@@ -38,3 +38,11 @@ export function postImageFile(image_io, userId) {
 export function getSearchResults(term) {
   return postRequest("search", { term });
 }
+
+// sends imageId to image#show and returns associated image
+export function getImage(id) {
+  console.log("getting image", id);
+  return fetch(`http://localhost:3000/api/v1/images/${id}`).then(res =>
+    res.json()
+  );
+}

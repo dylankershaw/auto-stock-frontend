@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
 
+import ImageShowContainer from "./image/image_show_container";
 import UploadContainer from "./image/upload_container";
 import SignupContainer from "./user/signup_container";
 import LoginContainer from "./user/login_container";
@@ -40,6 +41,7 @@ class App extends Component {
               }
             />
             <Route path="/upload" component={UploadContainer} />
+            <Route path="/images/:id" component={ImageShowContainer} />
           </Switch>
         </div>
       </BrowserRouter>

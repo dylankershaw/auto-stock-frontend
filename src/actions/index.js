@@ -3,7 +3,8 @@ import * as apiHelpers from "../api";
 export const LOGIN_USER = "LOGIN_USER";
 export const LOGOUT_USER = "LOGOUT_USER";
 export const SIGNUP_USER = "SIGNUP_USER";
-export const UPLOAD_IMAGE = "UPLOAD_IMAGE";
+export const SEARCH_IMAGE = "SEARCH_IMAGE";
+export const SHOW_IMAGE = "SHOW_IMAGE";
 export const SUBMIT_SEARCH = "SUBMIT_SEARCH";
 
 export function authenticateToken(token) {
@@ -45,9 +46,7 @@ export function signupUser(values) {
 
 export function logoutUser() {
   localStorage.setItem("token", "");
-  return {
-    type: LOGOUT_USER
-  };
+  return { type: LOGOUT_USER };
 }
 
 export function submitSearch(term) {
@@ -55,7 +54,6 @@ export function submitSearch(term) {
     apiHelpers.getSearchResults(term).then(data => {
       return dispatch({ type: SUBMIT_SEARCH, payload: data });
     });
-    console.log(history);
   };
 }
 
@@ -63,8 +61,7 @@ export function uploadImageUrl(url, userId) {
   // dispatch({ type: "START_LOADING_BAR" });
   return function(dispatch) {
     apiHelpers.postImageUrl(url, userId).then(data => {
-      console.log("uploadImage data:", data);
-      return dispatch({ type: UPLOAD_IMAGE, payload: data });
+      return dispatch({ type: SHOW_IMAGE, payload: data });
     });
   };
 }
@@ -72,12 +69,16 @@ export function uploadImageUrl(url, userId) {
 export function uploadImageFile(image, userId) {
   // dispatch({ type: "START_LOADING_BAR" });
   return function(dispatch) {
-    apiHelpers.postImageFile(image, userId).then(resp => {
-      console.log("resp:", resp);
-      return dispatch({
-        type: UPLOAD_IMAGE,
-        payload: resp
-      });
+    apiHelpers.postImageFile(image, userId).then(data => {
+      return dispatch({ type: SHOW_IMAGE, payload: data });
+    });
+  };
+}
+
+export function showImage(imageId) {
+  return function(dispatch) {
+    apiHelpers.getImage(imageId).then(data => {
+      return dispatch({ type: SHOW_IMAGE, payload: data });
     });
   };
 }
