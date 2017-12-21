@@ -1,10 +1,11 @@
 import * as apiHelpers from "../api";
 
 export const LOGIN_USER = "LOGIN_USER";
+export const SHOW_IMAGE = "SHOW_IMAGE";
+export const CLEAR_IMAGE = "CLEAR_IMAGE";
 export const LOGOUT_USER = "LOGOUT_USER";
 export const SIGNUP_USER = "SIGNUP_USER";
 export const SEARCH_IMAGE = "SEARCH_IMAGE";
-export const SHOW_IMAGE = "SHOW_IMAGE";
 export const SUBMIT_SEARCH = "SUBMIT_SEARCH";
 
 export function authenticateToken(token) {
@@ -81,4 +82,8 @@ export function showImage(imageId) {
       return dispatch({ type: SHOW_IMAGE, payload: data });
     });
   };
+}
+
+export function clearImage() {
+  return { type: CLEAR_IMAGE };
 }

@@ -5,17 +5,13 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions";
 
 class AuthNavbar extends Component {
-  onLogout = () => {
-    this.props.logoutUser();
-  };
-
   render() {
-    // true if there is a logged in user
+    // renders if there is a logged in user
     if (Object.keys(this.props.user).length) {
       return (
         <div>
           <div>Welcome {this.props.user.username}</div>
-          <a onClick={this.onLogout}>Log Out</a>
+          <a onClick={this.props.logoutUser}>Log Out</a>
         </div>
       );
     } else {

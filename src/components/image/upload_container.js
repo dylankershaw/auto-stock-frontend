@@ -5,6 +5,7 @@ import _ from "lodash";
 
 import ImageNavbar from "../navigation/image_navbar";
 import AuthNavbar from "../navigation/auth_navbar";
+import { clearImage } from "../../actions/index";
 import UploadFileForm from "./upload_file_form";
 import UploadComplete from "./upload_complete";
 import UploadURLForm from "./upload_url_form";
@@ -24,7 +25,7 @@ class UploadContainer extends Component {
       return (
         <div>
           <div>
-            <Link to="/upload">{"< UPLOAD ANOTHER IMAGE"}</Link>
+            <a onClick={this.props.clearImage}>{"< UPLOAD ANOTHER IMAGE"}</a>
             <br />
             <Link to="/">{"< SEARCH IMAGES"}</Link>
           </div>
@@ -34,10 +35,14 @@ class UploadContainer extends Component {
       );
     }
   }
+
+  componentWillUnmount() {
+    this.props.clearImage();
+  }
 }
 
 function mapStateToProps({ image }) {
   return { image };
 }
 
-export default connect(mapStateToProps)(UploadContainer);
+export default connect(mapStateToProps, { clearImage })(UploadContainer);
