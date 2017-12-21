@@ -1,26 +1,35 @@
+import React, { Component } from "react";
 import { connect } from "react-redux";
-import React from "react";
 
+import { clearResults } from "../../actions/index";
 import ResultShow from "./result_show";
 
-const ResultsContainer = ({ results }) => (
-  <div>
-    {results.length > 0 ? (
-      results
-        .sort((a, b) => {
-          return b.score - a.score;
-        })
-        .map(result => <ResultShow key={result.id} result={result} />)
-    ) : (
+class ResultsContainer extends Component {
+  render() {
+    return (
       <div>
-        <br />No results found. Try another keyword.
+        {this.props.results.length > 0 ? (
+          this.props.results
+            .sort((a, b) => {
+              return b.score - a.score;
+            })
+            .map(result => <ResultShow key={result.id} result={result} />)
+        ) : (
+          <div>
+            <br />No results found. Try another keyword.
+          </div>
+        )}
       </div>
-    )}
-  </div>
-);
+    );
+  }
+
+  componentWillUnmount() {
+    this.props.clearResults();
+  }
+}
 
 function mapStateToProps({ search }) {
   return { results: search.results };
 }
 
-export default connect(mapStateToProps)(ResultsContainer);
+export default connect(mapStateToProps, { clearResults })(ResultsContainer);

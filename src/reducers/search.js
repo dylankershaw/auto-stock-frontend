@@ -1,4 +1,4 @@
-import { SUBMIT_SEARCH } from "../actions";
+import { SUBMIT_SEARCH, CLEAR_RESULTS } from "../actions";
 
 export default function(state = { results: [] }, action) {
   switch (action.type) {
@@ -6,6 +6,8 @@ export default function(state = { results: [] }, action) {
       return {
         results: action.payload
       };
+    case CLEAR_RESULTS:
+      return { results: [] };
     default:
       return state;
   }

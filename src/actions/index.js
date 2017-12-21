@@ -6,6 +6,7 @@ export const CLEAR_IMAGE = "CLEAR_IMAGE";
 export const LOGOUT_USER = "LOGOUT_USER";
 export const SIGNUP_USER = "SIGNUP_USER";
 export const SEARCH_IMAGE = "SEARCH_IMAGE";
+export const CLEAR_RESULTS = "CLEAR_RESULTS";
 export const SUBMIT_SEARCH = "SUBMIT_SEARCH";
 
 export function authenticateToken(token) {
@@ -86,4 +87,8 @@ export function showImage(imageId) {
 
 export function clearImage() {
   return { type: CLEAR_IMAGE };
+}
+
+export function clearResults() {
+  return { type: CLEAR_RESULTS };
 }
