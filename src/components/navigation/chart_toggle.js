@@ -1,11 +1,11 @@
 import React from "react";
 import { Button } from "semantic-ui-react";
 
-const ChartToggle = ({ toggleChartType }) => (
+const ChartToggle = ({ toggleChartType, selection }) => (
   <div>
-    <div>chart type:</div>
     <Button.Group>
       <Button
+        active={selection === "bar" ? true : false}
         onClick={() => {
           toggleChartType("bar");
         }}
@@ -14,6 +14,7 @@ const ChartToggle = ({ toggleChartType }) => (
       </Button>
       <Button.Or />
       <Button
+        active={selection === "radar" ? true : false}
         onClick={() => {
           toggleChartType("radar");
         }}

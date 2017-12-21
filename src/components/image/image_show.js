@@ -50,7 +50,10 @@ class ImageShow extends Component {
             />
           </div>
           <div>
-            <ChartToggle toggleChartType={this.toggleChartType} />
+            <ChartToggle
+              toggleChartType={this.toggleChartType}
+              selection={this.state.chartType}
+            />
           </div>
 
           {this.state.chartType === "bar" ? (
