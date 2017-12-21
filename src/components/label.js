@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Progress } from "semantic-ui-react";
 
 const Label = ({ score, name }) => {
@@ -6,6 +7,8 @@ const Label = ({ score, name }) => {
   return (
     <div style={{ width: "250px" }}>
       <Progress
+        as={Link}
+        to={`/search/${name}`}
         value={Math.round(score * 100)}
         progress="percent"
         precision={0}
