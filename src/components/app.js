@@ -42,7 +42,12 @@ class App extends Component {
                 this.loggedIn() ? <Redirect to="/" /> : <SignupContainer />
               }
             />
-            <Route path="/upload" component={UploadContainer} />
+            <Route
+              path="/upload"
+              render={() =>
+                this.loggedIn() ? <UploadContainer /> : <Redirect to="/login" />
+              }
+            />
             <Route path="/users/:id" component={UserShowContainer} />
             <Route path="/images/:id" component={ImageShowContainer} />
             <Route path="/search/:searchTerm" component={SearchContainer} />
