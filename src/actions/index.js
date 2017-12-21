@@ -1,10 +1,9 @@
 import * as apiHelpers from "../api";
 
-export const LOGIN_USER = "LOGIN_USER";
+export const SET_USER = "SET_USER";
 export const SHOW_IMAGE = "SHOW_IMAGE";
 export const CLEAR_IMAGE = "CLEAR_IMAGE";
 export const LOGOUT_USER = "LOGOUT_USER";
-export const SIGNUP_USER = "SIGNUP_USER";
 export const SEARCH_IMAGE = "SEARCH_IMAGE";
 export const CLEAR_RESULTS = "CLEAR_RESULTS";
 export const SUBMIT_SEARCH = "SUBMIT_SEARCH";
@@ -13,7 +12,7 @@ export function authenticateToken(token) {
   return function(dispatch) {
     apiHelpers.checkToken(token).then(data => {
       if (!data.error) {
-        return dispatch({ type: LOGIN_USER, payload: data });
+        return dispatch({ type: SET_USER, payload: data });
       } else {
         console.log("invalid token");
       }
@@ -26,7 +25,7 @@ export function loginUser(values) {
     apiHelpers.login(values).then(data => {
       if (!data.error) {
         localStorage.setItem("token", data.token);
-        return dispatch({ type: LOGIN_USER, payload: data });
+        return dispatch({ type: SET_USER, payload: data });
       } else {
         console.log("invalid login");
       }
@@ -39,7 +38,7 @@ export function signupUser(values) {
     apiHelpers.signup(values).then(data => {
       localStorage.setItem("token", data.token);
       return dispatch({
-        type: SIGNUP_USER,
+        type: SET_USER,
         payload: { id: data.id, username: data.username }
       });
     });

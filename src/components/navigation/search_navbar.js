@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import _ from "lodash";
 
-import ResultsContainer from "../search/results_container";
 import SearchBar from "../search/search_bar";
 import ImageNavbar from "./image_navbar";
 import AuthNavbar from "./auth_navbar";

@@ -6,6 +6,8 @@ import ResultShow from "./result_show";
 
 class ResultsContainer extends Component {
   render() {
+    console.log(this.props.results[0]);
+    // debugger;
     return (
       <div>
         Results for <strong>{this.props.searchTerm}</strong>

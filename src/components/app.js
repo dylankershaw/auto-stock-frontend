@@ -17,7 +17,9 @@ class App extends Component {
   componentDidMount() {
     const token = localStorage.getItem("token");
     // attempts authentication if there is a token
-    token.length ? this.props.authenticateToken(token) : null;
+    if (token.length) {
+      this.props.authenticateToken(token);
+    }
   }
 
   loggedIn = () => {
@@ -51,6 +53,7 @@ class App extends Component {
             <Route path="/users/:id" component={UserShowContainer} />
             <Route path="/images/:id" component={ImageShowContainer} />
             <Route path="/search/:searchTerm" component={SearchContainer} />
+            <Redirect from="/" to="/" />
           </Switch>
         </div>
       </BrowserRouter>

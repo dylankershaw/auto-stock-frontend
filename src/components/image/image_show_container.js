@@ -3,12 +3,17 @@ import React from "react";
 import _ from "lodash";
 
 import ImageShowNavbar from "../navigation/image_show_navbar";
+import { clearImage } from "../../actions/index";
 import { showImage } from "../../actions/index";
 import ImageShow from "./image_show";
 
 class ImageShowContainer extends React.Component {
   componentDidMount() {
     this.props.showImage(this.props.match.params.id);
+  }
+
+  componentWillUnmount() {
+    this.props.clearImage();
   }
 
   render() {
@@ -34,4 +39,6 @@ function mapStateToProps({ image }) {
   return { image };
 }
 
-export default connect(mapStateToProps, { showImage })(ImageShowContainer);
+export default connect(mapStateToProps, { showImage, clearImage })(
+  ImageShowContainer
+);
