@@ -24,7 +24,7 @@ class SearchContainer extends React.Component {
       return (
         <div>
           <SearchNavbar />
-          <ResultsContainer />
+          <ResultsContainer searchTerm={this.props.match.params.searchTerm} />
         </div>
       );
     }

@@ -7,9 +7,10 @@ const Label = ({ score, name }) => {
     <div style={{ width: "250px" }}>
       <Progress
         value={Math.round(score * 100)}
-        total="100"
         progress="percent"
+        precision={0}
         color="green"
+        total="100"
         label={name}
       />
     </div>

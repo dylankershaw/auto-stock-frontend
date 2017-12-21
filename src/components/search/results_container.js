@@ -8,6 +8,7 @@ class ResultsContainer extends Component {
   render() {
     return (
       <div>
+        Results for <strong>{this.props.searchTerm}</strong>
         {this.props.results.length > 0 ? (
           this.props.results
             .sort((a, b) => {
