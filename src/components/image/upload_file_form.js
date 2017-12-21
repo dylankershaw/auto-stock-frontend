@@ -19,7 +19,7 @@ class UploadFileForm extends Component {
         base64={true}
         multipleFiles={false}
       >
-        <Button className="btn">Upload</Button>
+        <Button className="btn">Upload From Computer</Button>
       </ReactFileReader>
     );
   }

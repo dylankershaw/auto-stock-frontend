@@ -17,8 +17,8 @@ class UploadContainer extends Component {
         <div>
           <AuthNavbar />
           <ImageNavbar currentContainer="upload" />
-          {/* <UploadURLForm /> */}
           <UploadFileForm />
+          <UploadURLForm />
         </div>
       );
     } else {
