@@ -6,7 +6,11 @@ import ResultShow from "./result_show";
 const ResultsContainer = ({ results }) => (
   <div>
     {results.length > 0 ? (
-      results.map(result => <ResultShow key={result.id} result={result} />)
+      results
+        .sort((a, b) => {
+          return b.score - a.score;
+        })
+        .map(result => <ResultShow key={result.id} result={result} />)
     ) : (
       <div>
         <br />No results found. Try another keyword.

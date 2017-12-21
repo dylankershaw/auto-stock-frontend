@@ -53,7 +53,7 @@ class ImageShow extends Component {
         <div>
           <br />
           Invalid image ID.<br />
-          <Link to="/">Return to homepage?</Link>
+          {/* <Link to="/">Return to homepage?</Link> */}
         </div>
       );
     }
