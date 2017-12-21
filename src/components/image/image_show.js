@@ -2,14 +2,28 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-import Label from "../label.js";
+import ChartToggle from "../navigation/chart_toggle";
+import RadarChart from "../label/radar_chart";
+import BarList from "../label/bar_list";
 
 class ImageShow extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      chartType: "bar"
+    };
+  }
+
   // iterates through each imageLabel to find the one associated with a given label, and returns its score
   findScore = label => {
     return this.props.image.imageLabels.find(imageLabel => {
       return imageLabel.label_id === label.id;
     }).relevancyScore;
+  };
+
+  toggleChartType = chartType => {
+    this.setState({ chartType });
   };
 
   render() {
@@ -28,23 +42,22 @@ class ImageShow extends Component {
               {imageUser.username.toUpperCase()}
             </Link>
           </div>
-          <img
-            alt={this.props.image.labels[0].name}
-            src={this.props.image.url}
-            width="250"
-          />
-          {sortedLabels.map(label => {
-            return (
-              <div key={label.id}>
-                <Label
-                  score={this.findScore(label)}
-                  name={label.name}
-                  id={label.id}
-                />
-                <br />
-              </div>
-            );
-          })}
+          <div>
+            <img
+              alt={this.props.image.labels[0].name}
+              src={this.props.image.url}
+              width="500"
+            />
+          </div>
+          <div>
+            <ChartToggle toggleChartType={this.toggleChartType} />
+          </div>
+
+          {this.state.chartType === "bar" ? (
+            <BarList labels={sortedLabels} findScore={this.findScore} />
+          ) : (
+            <RadarChart labels={sortedLabels} findScore={this.findScore} />
+          )}
         </div>
       );
     } else {
@@ -52,7 +65,6 @@ class ImageShow extends Component {
         <div>
           <br />
           Invalid image ID.<br />
-          {/* <Link to="/">Return to homepage?</Link> */}
         </div>
       );
     }
