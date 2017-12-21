@@ -1,12 +1,17 @@
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import React from "react";
 
-const ImageShowNavbar = () => (
+import { clearImage } from "../../actions/index";
+
+const ImageShowNavbar = ({ clearImage }) => (
   <div>
     <Link to="/">{"< BACK TO SEARCH"}</Link>
     <br />
-    <Link to="/upload">{"< UPLOAD AN IMAGE"}</Link>
+    <Link to="/upload" onClick={clearImage}>
+      {"< UPLOAD AN IMAGE"}
+    </Link>
   </div>
 );
 
-export default ImageShowNavbar;
+export default connect(null, { clearImage })(ImageShowNavbar);

@@ -16,6 +16,11 @@ class ImageShow extends Component {
   render() {
     if (this.props.image.id) {
       const imageUser = this.props.image.user;
+
+      const sortedLabels = this.props.image.labels.sort((a, b) => {
+        return this.findScore(b) - this.findScore(a);
+      });
+
       return (
         <div>
           <div>
@@ -29,7 +34,7 @@ class ImageShow extends Component {
             src={this.props.image.url}
             width="250"
           />
-          {this.props.image.labels.map(label => {
+          {sortedLabels.map(label => {
             return (
               <div key={label.id}>
                 <Label
