@@ -35,12 +35,16 @@ class UserShowContainer extends Component {
       );
       // renders if user has images
     } else if (!_.isEmpty(this.state.user.images)) {
+      const sortedImages = this.state.user.images.sort((a, b) => {
+        return b.id - a.id;
+      });
+
       return (
         <div>
           <AuthNavbar />
           <UserShowNavbar />
           {this.state.user.username}'s images
-          {this.state.user.images.map(image => (
+          {sortedImages.map(image => (
             <div key={image.id}>
               <Link to={`/images/${image.id}`}>
                 <img alt="" src={image.url} width="250" />

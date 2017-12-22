@@ -6,7 +6,10 @@ const RadarChart = ({ labels, findScore }) => {
   const labelValues = labels.map(label => findScore(label));
 
   return (
-    <Radar data={{ labels: labelNames, datasets: [{ data: labelValues }] }} />
+    <Radar
+      data={{ labels: labelNames, datasets: [{ data: labelValues }] }}
+      options={{ legend: { display: false } }}
+    />
   );
 };
 
