@@ -1,5 +1,7 @@
+const BASE_URL = "http://localhost:3000/api/v1/";
+
 function postRequest(endpoint, data) {
-  return fetch(`http://localhost:3000/api/v1/${endpoint}`, {
+  return fetch(BASE_URL + endpoint, {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json"
@@ -41,7 +43,5 @@ export function getSearchResults(term) {
 
 // sends imageId to image#show and returns associated image
 export function getImage(id) {
-  return fetch(`http://localhost:3000/api/v1/images/${id}`).then(res =>
-    res.json()
-  );
+  return fetch(`${BASE_URL}images/${id}`).then(res => res.json());
 }
