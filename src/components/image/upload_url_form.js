@@ -25,6 +25,9 @@ class UploadURLForm extends Component {
       <div>
         <Form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}>
           <Field label="URL" name="url" component={this.renderField} />
+          Ensure URL ends with file type.
+          <br />(i.e. www.example.com/images/dog1<strong>.jpg</strong>)
+          <br />
           <Button type="submit">Submit</Button>
         </Form>
       </div>
