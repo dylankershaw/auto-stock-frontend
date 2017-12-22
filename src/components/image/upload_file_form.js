@@ -15,7 +15,7 @@ class UploadFileForm extends Component {
     return (
       <ReactFileReader
         handleFiles={this.handleImage}
-        fileTypes={[".jpg", ".jpeg", ".png", "gif"]}
+        fileTypes={[".jpg", ".jpeg", ".png", ".gif"]}
         base64={true}
         multipleFiles={false}
       >
