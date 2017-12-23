@@ -4,12 +4,12 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
 
+import InactiveSearchContainer from "./search/inactive_search_container";
+import ActiveSearchContainer from "./search/active_search_container";
 import ImageShowContainer from "./image/image_show_container";
 import UserShowContainer from "./user/user_show_container";
-import SearchContainer from "./search/search_container";
 import UploadContainer from "./image/upload_container";
 import SignupContainer from "./user/signup_container";
-import SearchNavbar from "./navigation/search_navbar";
 import LoginContainer from "./user/login_container";
 
 class App extends Component {
@@ -31,7 +31,7 @@ class App extends Component {
       <BrowserRouter>
         <div>
           <Switch>
-            <Route exact path="/" component={SearchNavbar} />
+            <Route exact path="/" component={InactiveSearchContainer} />
             <Route
               path="/login"
               render={() =>
@@ -52,7 +52,10 @@ class App extends Component {
             />
             <Route path="/users/:id" component={UserShowContainer} />
             <Route path="/images/:id" component={ImageShowContainer} />
-            <Route path="/search/:searchTerm" component={SearchContainer} />
+            <Route
+              path="/search/:searchTerm"
+              component={ActiveSearchContainer}
+            />
             <Redirect from="/" to="/" />
           </Switch>
         </div>

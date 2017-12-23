@@ -10,7 +10,11 @@ class SearchBar extends Component {
   renderField = field => {
     return (
       <div>
-        <input placeholder="enter a keyword..." type="text" {...field.input} />
+        <input
+          placeholder="enter a search term..."
+          type="text"
+          {...field.input}
+        />
       </div>
     );
   };
@@ -24,7 +28,7 @@ class SearchBar extends Component {
     return (
       <Form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}>
         <Field name="searchTerm" component={this.renderField} />
-        <Button type="submit">Search</Button>
+        {/* <Button type="submit">Search</Button> */}
       </Form>
     );
   }

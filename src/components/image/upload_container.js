@@ -1,3 +1,4 @@
+import { Grid, Divider } from "semantic-ui-react";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
@@ -14,12 +15,33 @@ class UploadContainer extends Component {
   render() {
     if (_.isEmpty(this.props.image)) {
       return (
-        <div>
-          <AuthNavbar />
-          <ImageNavbar currentContainer="upload" />
-          <UploadFileForm />
-          <UploadURLForm />
-        </div>
+        <Grid textAlign="center">
+          <Grid.Row columns={3}>
+            <Grid.Column />
+            <Grid.Column>
+              <ImageNavbar currentContainer="upload" />
+            </Grid.Column>
+            <Grid.Column>
+              <AuthNavbar />
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row />
+          <Grid.Row columns={3}>
+            <Grid.Column />
+            <Grid.Column>
+              <UploadURLForm />
+            </Grid.Column>
+            <Grid.Column />
+          </Grid.Row>
+          <Divider horizontal>Or</Divider>
+          <Grid.Row columns={3}>
+            <Grid.Column />
+            <Grid.Column>
+              <UploadFileForm />
+            </Grid.Column>
+            <Grid.Column />
+          </Grid.Row>
+        </Grid>
       );
     } else {
       return (

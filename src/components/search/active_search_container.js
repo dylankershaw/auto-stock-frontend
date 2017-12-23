@@ -6,7 +6,7 @@ import SearchNavbar from "../navigation/search_navbar";
 import ResultsContainer from "./results_container";
 import { submitSearch } from "../../actions";
 
-class SearchContainer extends React.Component {
+class ActiveSearchContainer extends React.Component {
   // renders results when user manually inputs url
   componentDidMount() {
     const searchTerm = this.props.match.params.searchTerm;
@@ -15,11 +15,7 @@ class SearchContainer extends React.Component {
 
   render() {
     if (_.isEmpty(this.props.results)) {
-      return (
-        <div>
-          <SearchNavbar />
-        </div>
-      );
+      return <SearchNavbar />;
     } else {
       return (
         <div>
@@ -35,4 +31,6 @@ function mapStateToProps({ search }) {
   return { results: search.results };
 }
 
-export default connect(mapStateToProps, { submitSearch })(SearchContainer);
+export default connect(mapStateToProps, { submitSearch })(
+  ActiveSearchContainer
+);
