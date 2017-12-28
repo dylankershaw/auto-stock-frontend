@@ -1,3 +1,4 @@
+import { Grid, Container } from "semantic-ui-react";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
@@ -6,22 +7,24 @@ import ResultShow from "./result_show";
 
 class ResultsContainer extends Component {
   render() {
-    console.log(this.props.results[0]);
-    // debugger;
     return (
       <div>
         Results for <strong>{this.props.searchTerm}</strong>
-        {this.props.results.length > 0 ? (
-          this.props.results
-            .sort((a, b) => {
-              return b.score - a.score;
-            })
-            .map(result => <ResultShow key={result.id} result={result} />)
-        ) : (
-          <div>
-            <br />No results found. Try another keyword.
-          </div>
-        )}
+        <br />
+        <br />
+        <Grid doubling columns={5}>
+          {this.props.results.length > 0 ? (
+            this.props.results
+              .sort((a, b) => {
+                return b.score - a.score;
+              })
+              .map(result => <ResultShow key={result.id} result={result} />)
+          ) : (
+            <div>
+              <br />No results found. Try another keyword.
+            </div>
+          )}
+        </Grid>
       </div>
     );
   }

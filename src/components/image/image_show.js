@@ -46,7 +46,6 @@ class ImageShow extends Component {
             <img
               alt={this.props.image.labels[0].name}
               src={this.props.image.url}
-              width="500"
             />
           </div>
           <div>

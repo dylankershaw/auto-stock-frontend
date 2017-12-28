@@ -5,7 +5,7 @@ import { Progress } from "semantic-ui-react";
 const BarLabel = ({ score, name }) => {
   // Math.round(score * 100);
   return (
-    <div style={{ width: "250px" }}>
+    <div>
       <Progress
         label={name ? name : null}
         as={name ? Link : null}

@@ -7,6 +7,7 @@ export const LOGOUT_USER = "LOGOUT_USER";
 export const SEARCH_IMAGE = "SEARCH_IMAGE";
 export const CLEAR_RESULTS = "CLEAR_RESULTS";
 export const SUBMIT_SEARCH = "SUBMIT_SEARCH";
+export const START_LOADING_BAR = "START_LOADING_BAR";
 
 export function authenticateToken(token) {
   return function(dispatch) {
@@ -59,8 +60,8 @@ export function submitSearch(term) {
 }
 
 export function uploadImageUrl(url, userId) {
-  // dispatch({ type: "START_LOADING_BAR" });
   return function(dispatch) {
+    dispatch({ type: START_LOADING_BAR });
     apiHelpers.postImageUrl(url, userId).then(data => {
       return dispatch({ type: SHOW_IMAGE, payload: data });
     });
@@ -68,8 +69,8 @@ export function uploadImageUrl(url, userId) {
 }
 
 export function uploadImageFile(image, userId) {
-  // dispatch({ type: "START_LOADING_BAR" });
   return function(dispatch) {
+    dispatch({ type: START_LOADING_BAR });
     apiHelpers.postImageFile(image, userId).then(data => {
       return dispatch({ type: SHOW_IMAGE, payload: data });
     });

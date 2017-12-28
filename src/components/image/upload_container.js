@@ -1,4 +1,4 @@
-import { Grid, Divider } from "semantic-ui-react";
+import { Grid, Divider, Dimmer, Loader } from "semantic-ui-react";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
@@ -15,7 +15,10 @@ class UploadContainer extends Component {
   render() {
     if (_.isEmpty(this.props.image)) {
       return (
-        <Grid textAlign="center">
+        <Dimmer.Dimmable as={Grid} textAlign="center">
+          <Dimmer active={this.props.loading}>
+            <Loader>Uploading...</Loader>
+          </Dimmer>
           <Grid.Row columns={3}>
             <Grid.Column />
             <Grid.Column>
@@ -41,7 +44,7 @@ class UploadContainer extends Component {
             </Grid.Column>
             <Grid.Column />
           </Grid.Row>
-        </Grid>
+        </Dimmer.Dimmable>
       );
     } else {
       return (
@@ -63,8 +66,8 @@ class UploadContainer extends Component {
   }
 }
 
-function mapStateToProps({ image }) {
-  return { image };
+function mapStateToProps({ image, loading }) {
+  return { image, loading };
 }
 
 export default connect(mapStateToProps, { clearImage })(UploadContainer);
