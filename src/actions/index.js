@@ -5,6 +5,7 @@ export const SHOW_IMAGE = "SHOW_IMAGE";
 export const CLEAR_IMAGE = "CLEAR_IMAGE";
 export const LOGOUT_USER = "LOGOUT_USER";
 export const SEARCH_IMAGE = "SEARCH_IMAGE";
+export const INVALID_LOGIN = "INVALID_LOGIN";
 export const CLEAR_RESULTS = "CLEAR_RESULTS";
 export const SUBMIT_SEARCH = "SUBMIT_SEARCH";
 export const START_LOADING_BAR = "START_LOADING_BAR";
@@ -28,7 +29,7 @@ export function loginUser(values) {
         localStorage.setItem("token", data.token);
         return dispatch({ type: SET_USER, payload: data });
       } else {
-        console.log("invalid login");
+        return dispatch({ type: INVALID_LOGIN });
       }
     });
   };
