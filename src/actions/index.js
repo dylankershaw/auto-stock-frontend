@@ -8,6 +8,7 @@ export const SEARCH_IMAGE = "SEARCH_IMAGE";
 export const INVALID_LOGIN = "INVALID_LOGIN";
 export const CLEAR_RESULTS = "CLEAR_RESULTS";
 export const SUBMIT_SEARCH = "SUBMIT_SEARCH";
+export const INVALID_SIGNUP = "INVALID_SIGNUP";
 export const START_LOADING_BAR = "START_LOADING_BAR";
 
 export function authenticateToken(token) {
@@ -39,10 +40,14 @@ export function signupUser(values) {
   return function(dispatch) {
     apiHelpers.signup(values).then(data => {
       localStorage.setItem("token", data.token);
-      return dispatch({
-        type: SET_USER,
-        payload: { id: data.id, username: data.username }
-      });
+      if (!data.error) {
+        return dispatch({
+          type: SET_USER,
+          payload: { id: data.id, username: data.username }
+        });
+      } else {
+        return dispatch({ type: INVALID_SIGNUP });
+      }
     });
   };
 }

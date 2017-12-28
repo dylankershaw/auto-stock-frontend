@@ -1,4 +1,4 @@
-import { Button, Form } from "semantic-ui-react";
+import { Button, Form, Message } from "semantic-ui-react";
 import { Field, reduxForm } from "redux-form";
 import React, { Component } from "react";
 import { connect } from "react-redux";
@@ -26,11 +26,24 @@ class SignupForm extends Component {
 
   render() {
     return (
-      <Form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}>
-        <Field label="Username" name="username" component={this.renderField} />
-        <Field label="Password" name="password" component={this.renderField} />
-        <Button type="submit">Sign Up</Button>
-      </Form>
+      <div>
+        <Form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}>
+          <Field
+            label="Username"
+            name="username"
+            component={this.renderField}
+          />
+          <Field
+            label="Password"
+            name="password"
+            component={this.renderField}
+          />
+          <Button type="submit">Sign Up</Button>
+        </Form>
+        {this.props.errors.signup ? (
+          <Message>Username already taken.</Message>
+        ) : null}
+      </div>
     );
   }
 }
@@ -46,7 +59,11 @@ function validate(values) {
   return errors;
 }
 
+function mapStateToProps({ errors }) {
+  return { errors };
+}
+
 export default reduxForm({
   validate,
   form: "SignupForm" // name of form, must be unique
-})(connect(null, { signupUser })(SignupForm));
+})(connect(mapStateToProps, { signupUser })(SignupForm));
