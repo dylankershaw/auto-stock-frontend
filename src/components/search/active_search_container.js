@@ -14,16 +14,12 @@ class ActiveSearchContainer extends React.Component {
   }
 
   render() {
-    if (_.isEmpty(this.props.results)) {
-      return <SearchNavbar />;
-    } else {
-      return (
-        <div>
-          <SearchNavbar />
-          <ResultsContainer searchTerm={this.props.match.params.searchTerm} />
-        </div>
-      );
-    }
+    return (
+      <div>
+        <SearchNavbar />
+        <ResultsContainer searchTerm={this.props.match.params.searchTerm} />
+      </div>
+    );
   }
 }
 

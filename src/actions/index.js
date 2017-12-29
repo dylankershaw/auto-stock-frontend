@@ -7,7 +7,7 @@ export const LOGOUT_USER = "LOGOUT_USER";
 export const SEARCH_IMAGE = "SEARCH_IMAGE";
 export const INVALID_LOGIN = "INVALID_LOGIN";
 export const CLEAR_RESULTS = "CLEAR_RESULTS";
-export const SUBMIT_SEARCH = "SUBMIT_SEARCH";
+export const SET_RESULTS = "SET_RESULTS";
 export const INVALID_SIGNUP = "INVALID_SIGNUP";
 export const START_LOADING_BAR = "START_LOADING_BAR";
 
@@ -60,7 +60,11 @@ export function logoutUser() {
 export function submitSearch(term) {
   return function(dispatch) {
     apiHelpers.getSearchResults(term).then(data => {
-      return dispatch({ type: SUBMIT_SEARCH, payload: data });
+      if (!data.error) {
+        return dispatch({ type: SET_RESULTS, payload: data });
+      } else {
+        return dispatch({ type: CLEAR_RESULTS });
+      }
     });
   };
 }

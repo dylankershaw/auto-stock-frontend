@@ -9,21 +9,16 @@ class ResultsContainer extends Component {
   render() {
     return (
       <div>
-        Results for <strong>{this.props.searchTerm}</strong>
+        {this.props.results.length} results for{" "}
+        <strong>{this.props.searchTerm}</strong>
         <br />
         <br />
         <Grid doubling columns={5}>
-          {this.props.results.length > 0 ? (
-            this.props.results
-              .sort((a, b) => {
-                return b.score - a.score;
-              })
-              .map(result => <ResultShow key={result.id} result={result} />)
-          ) : (
-            <div>
-              <br />No results found. Try another keyword.
-            </div>
-          )}
+          {this.props.results
+            .sort((a, b) => {
+              return b.score - a.score;
+            })
+            .map(result => <ResultShow key={result.id} result={result} />)}
         </Grid>
       </div>
     );
