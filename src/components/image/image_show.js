@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+import { Rail } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import ChartToggle from "../navigation/chart_toggle";
 import RadarChart from "../label/radar_chart";
+import DeleteButton from "./delete_button";
 import BarList from "../label/bar_list";
 
 class ImageShow extends Component {
@@ -47,6 +49,12 @@ class ImageShow extends Component {
               alt={this.props.image.labels[0].name}
               src={this.props.image.url}
             />
+            {this.props.image.user.id === this.props.user.id ? (
+              <DeleteButton
+                style={{ color: "red" }}
+                imageId={this.props.image.id}
+              />
+            ) : null}
           </div>
           <div>
             <ChartToggle
@@ -54,7 +62,6 @@ class ImageShow extends Component {
               selection={this.state.chartType}
             />
           </div>
-
           {this.state.chartType === "bar" ? (
             <BarList labels={sortedLabels} findScore={this.findScore} />
           ) : (
@@ -73,8 +80,8 @@ class ImageShow extends Component {
   }
 }
 
-function mapStateToProps({ image }) {
-  return { image };
+function mapStateToProps({ image, user }) {
+  return { image, user };
 }
 
 export default connect(mapStateToProps)(ImageShow);

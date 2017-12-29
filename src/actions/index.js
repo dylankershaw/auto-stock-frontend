@@ -2,12 +2,13 @@ import * as apiHelpers from "../api";
 
 export const SET_USER = "SET_USER";
 export const SHOW_IMAGE = "SHOW_IMAGE";
+export const SET_RESULTS = "SET_RESULTS";
 export const CLEAR_IMAGE = "CLEAR_IMAGE";
 export const LOGOUT_USER = "LOGOUT_USER";
+export const DELETE_IMAGE = "DELETE_IMAGE";
 export const SEARCH_IMAGE = "SEARCH_IMAGE";
 export const INVALID_LOGIN = "INVALID_LOGIN";
 export const CLEAR_RESULTS = "CLEAR_RESULTS";
-export const SET_RESULTS = "SET_RESULTS";
 export const INVALID_SIGNUP = "INVALID_SIGNUP";
 export const START_LOADING_BAR = "START_LOADING_BAR";
 
@@ -16,8 +17,6 @@ export function authenticateToken(token) {
     apiHelpers.checkToken(token).then(data => {
       if (!data.error) {
         return dispatch({ type: SET_USER, payload: data });
-      } else {
-        console.log("invalid token");
       }
     });
   };
@@ -91,6 +90,14 @@ export function showImage(imageId) {
   return function(dispatch) {
     apiHelpers.getImage(imageId).then(data => {
       return dispatch({ type: SHOW_IMAGE, payload: data });
+    });
+  };
+}
+
+export function deleteImage(imageId) {
+  return function(dispatch) {
+    apiHelpers.deleteImage(imageId).then(data => {
+      return dispatch({ type: CLEAR_IMAGE });
     });
   };
 }
