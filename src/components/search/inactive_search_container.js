@@ -31,7 +31,7 @@ class InactiveSearchContainer extends Component {
         style={{
           backgroundImage: `url(${this.state.imageUrl})`,
           backgroundSize: "cover",
-          height: "1000px"
+          height: parseInt(window.innerHeight) + 14 + "px"
         }}
       >
         <SearchNavbar textColor="white" />
