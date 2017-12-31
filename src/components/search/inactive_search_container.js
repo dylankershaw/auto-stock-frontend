@@ -12,16 +12,13 @@ class InactiveSearchContainer extends Component {
   }
 
   componentDidMount() {
-    let currentImageIndex = 0;
+    let index = 0;
 
-    // cycles through images and changes background every five seconds
+    // changes background image every five seconds
     setInterval(() => {
-      currentImageIndex =
-        currentImageIndex === this.images.length - 1
-          ? 0
-          : currentImageIndex + 1;
+      index = index === this.images.length - 1 ? 0 : index + 1;
 
-      this.setState({ imageUrl: this.url + this.images[currentImageIndex] });
+      this.setState({ imageUrl: this.url + this.images[index] });
     }, 5000);
   }
 

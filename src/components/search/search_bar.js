@@ -7,26 +7,52 @@ import { connect } from "react-redux";
 import { submitSearch } from "../../actions";
 
 class SearchBar extends Component {
-  onRoot = () => {
+  constructor() {
+    super();
+
+    this.state = { placeholder: "" };
+  }
+
+  isOnRoot = () => {
     return this.props.history.location.pathname === "/";
   };
 
-  renderField = field => {
-    return (
-      <div>
-        <Input
-          style={this.onRoot() ? { color: "white" } : null}
-          transparent={this.onRoot() ? true : false}
-          placeholder={this.onRoot() ? "Search Tagless" : "enter a search term"}
-          icon="search"
-          iconPosition="left"
-          type="text"
-          size="massive"
-          {...field.input}
-        />
-      </div>
-    );
-  };
+  componentDidMount() {
+    const terms = ["dogs", "space", "mountains"];
+    let termIndex = 0;
+    let letterIndex = 0;
+    let placeholder = "";
+    let direction = "increasing";
+
+    const addLetter = () => {
+      placeholder += terms[termIndex][letterIndex];
+      placeholder.length === terms[termIndex].length
+        ? (direction = "decreasing")
+        : letterIndex++;
+    };
+
+    const removeLetter = () => {
+      placeholder = placeholder.slice(0, letterIndex);
+      placeholder.length === 0 ? (direction = "increasing") : letterIndex--;
+    };
+
+    setInterval(() => {
+      if (
+        placeholder.length < terms[termIndex].length &&
+        direction === "increasing"
+      ) {
+        addLetter();
+      } else if (direction === "decreasing") {
+        removeLetter();
+      }
+
+      this.setState({ placeholder });
+
+      if (placeholder.length === 0) {
+        termIndex === terms.length - 1 ? (termIndex = 0) : termIndex++;
+      }
+    }, 250);
+  }
 
   onSubmit(values) {
     this.props.history.push(`/search/${values.searchTerm}`);
@@ -34,9 +60,28 @@ class SearchBar extends Component {
   }
 
   render() {
+    const renderField = field => {
+      return (
+        <div>
+          <Input
+            style={this.isOnRoot() ? { color: "white" } : null}
+            transparent={this.isOnRoot() ? true : false}
+            placeholder={
+              this.isOnRoot() ? this.state.placeholder : "enter a search term"
+            }
+            icon="search"
+            iconPosition="left"
+            type="text"
+            size="massive"
+            {...field.input}
+          />
+        </div>
+      );
+    };
+
     return (
       <Form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}>
-        <Field color="red" name="searchTerm" component={this.renderField} />
+        <Field color="red" name="searchTerm" component={renderField} />
       </Form>
     );
   }
