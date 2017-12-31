@@ -17,6 +17,7 @@ class SearchBar extends Component {
     return this.props.history.location.pathname === "/";
   };
 
+  // animates placeholder values with sample search terms
   componentDidMount() {
     const terms = ["dogs", "space", "mountains"];
     let termIndex = 0;
@@ -24,30 +25,30 @@ class SearchBar extends Component {
     let placeholder = "";
     let direction = "increasing";
 
+    // adds next term letter to placeholder
     const addLetter = () => {
       placeholder += terms[termIndex][letterIndex];
+
+      // changes direction if placeholder is entire term
       placeholder.length === terms[termIndex].length
         ? (direction = "decreasing")
         : letterIndex++;
     };
 
+    // removes last letter from placeholder
     const removeLetter = () => {
       placeholder = placeholder.slice(0, letterIndex);
+
+      // changes direction if placeholder is empty
       placeholder.length === 0 ? (direction = "increasing") : letterIndex--;
     };
 
     setInterval(() => {
-      if (
-        placeholder.length < terms[termIndex].length &&
-        direction === "increasing"
-      ) {
-        addLetter();
-      } else if (direction === "decreasing") {
-        removeLetter();
-      }
+      direction === "increasing" ? addLetter() : removeLetter();
 
       this.setState({ placeholder });
 
+      // cycles through terms
       if (placeholder.length === 0) {
         termIndex === terms.length - 1 ? (termIndex = 0) : termIndex++;
       }
