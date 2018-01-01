@@ -9,14 +9,13 @@ class SearchBar extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { placeholder: "", searchTerm: "" };
+    this.state = { placeholder: "", searchTerm: "", touched: false };
   }
 
   isOnRoot = () => {
     return this.props.history.location.pathname === "/";
   };
 
-  /*
   // animates placeholder values with sample search terms
   componentDidMount() {
     const terms = ["dogs", "space", "mountains"];
@@ -46,10 +45,8 @@ class SearchBar extends Component {
     const animatePlacholder = setInterval(() => {
       direction === "increasing" ? addLetter() : removeLetter();
 
-      // stops interval if field has been touched
-      !this.props.form.active
-        ? this.setState({ placeholder })
-        : stopAnimation();
+      // stops animation when field is touched
+      !this.state.touched ? this.setState({ placeholder }) : stopAnimation();
 
       // cycles through terms
       if (placeholder.length === 0) {
@@ -62,7 +59,10 @@ class SearchBar extends Component {
       this.setState({ placeholder: "" });
     };
   }
-  */
+
+  handleClick = () => {
+    this.setState({ touched: true });
+  };
 
   handleChange = ev => {
     this.setState({ searchTerm: ev.target.value });
@@ -77,6 +77,7 @@ class SearchBar extends Component {
     return (
       <Form onSubmit={this.handleSubmit}>
         <Input
+          onClick={this.handleClick}
           value={this.state.value}
           onChange={this.handleChange}
           style={this.isOnRoot() ? { color: "white" } : null}
