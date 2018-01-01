@@ -1,5 +1,4 @@
 import { Button, Form, Icon, Input } from "semantic-ui-react";
-import { Field, reduxForm } from "redux-form";
 import { withRouter } from "react-router";
 import React, { Component } from "react";
 import { connect } from "react-redux";
@@ -7,16 +6,17 @@ import { connect } from "react-redux";
 import { submitSearch } from "../../actions";
 
 class SearchBar extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
-    this.state = { placeholder: "" };
+    this.state = { placeholder: "", searchTerm: "" };
   }
 
   isOnRoot = () => {
     return this.props.history.location.pathname === "/";
   };
 
+  /*
   // animates placeholder values with sample search terms
   componentDidMount() {
     const terms = ["dogs", "space", "mountains"];
@@ -43,55 +43,55 @@ class SearchBar extends Component {
       placeholder.length === 0 ? (direction = "increasing") : letterIndex--;
     };
 
-    setInterval(() => {
+    const animatePlacholder = setInterval(() => {
       direction === "increasing" ? addLetter() : removeLetter();
 
-      this.setState({ placeholder });
+      // stops interval if field has been touched
+      !this.props.form.active
+        ? this.setState({ placeholder })
+        : stopAnimation();
 
       // cycles through terms
       if (placeholder.length === 0) {
         termIndex === terms.length - 1 ? (termIndex = 0) : termIndex++;
       }
     }, 250);
-  }
 
-  onSubmit(values) {
-    this.props.history.push(`/search/${values.searchTerm}`);
-    this.props.submitSearch(values.searchTerm);
+    const stopAnimation = () => {
+      clearInterval(animatePlacholder);
+      this.setState({ placeholder: "" });
+    };
   }
+  */
+
+  handleChange = ev => {
+    this.setState({ searchTerm: ev.target.value });
+  };
+
+  handleSubmit = () => {
+    this.props.history.push(`/search/${this.state.searchTerm}`);
+    this.props.submitSearch(this.state.searchTerm);
+  };
 
   render() {
-    const renderField = field => {
-      return (
-        <div>
-          <Input
-            style={this.isOnRoot() ? { color: "white" } : null}
-            transparent={this.isOnRoot() ? true : false}
-            placeholder={
-              this.isOnRoot() ? this.state.placeholder : "enter a search term"
-            }
-            icon="search"
-            iconPosition="left"
-            type="text"
-            size="massive"
-            {...field.input}
-          />
-        </div>
-      );
-    };
-
     return (
-      <Form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}>
-        <Field color="red" name="searchTerm" component={renderField} />
+      <Form onSubmit={this.handleSubmit}>
+        <Input
+          value={this.state.value}
+          onChange={this.handleChange}
+          style={this.isOnRoot() ? { color: "white" } : null}
+          transparent={this.isOnRoot() ? true : false}
+          placeholder={
+            this.isOnRoot() ? this.state.placeholder : "enter a search term"
+          }
+          icon="search"
+          iconPosition="left"
+          type="text"
+          size="massive"
+        />
       </Form>
     );
   }
 }
 
-function mapStateToProps({ search }) {
-  return { results: search.results };
-}
-
-export default reduxForm({
-  form: "SearchForm"
-})(withRouter(connect(mapStateToProps, { submitSearch })(SearchBar)));
+export default withRouter(connect(null, { submitSearch })(SearchBar));
