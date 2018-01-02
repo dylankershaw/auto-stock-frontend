@@ -1,3 +1,4 @@
+import { Button } from "semantic-ui-react";
 import { withRouter } from "react-router";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
@@ -7,9 +8,7 @@ import { logoutUser } from "../../actions";
 
 class AuthNavbar extends Component {
   // sets text color as white if on root
-  textColor = this.props.history.location.pathname === "/"
-    ? { color: "white" }
-    : null;
+  textColor = this.props.isOnRoot ? { color: "white" } : null;
 
   render() {
     // renders if there is a logged in user
@@ -24,15 +23,18 @@ class AuthNavbar extends Component {
       );
     } else {
       return (
-        <div style={this.textColor}>
-          <Link style={this.textColor} to="/login">
-            Log In
-          </Link>{" "}
-          or{" "}
-          <Link style={this.textColor} to="/signup">
-            Sign Up
-          </Link>
-        </div>
+        <Button.Group
+          basic={this.props.isOnRoot ? true : false}
+          inverted={this.props.isOnRoot ? true : false}
+        >
+          <Button as={Link} to="login">
+            LOG IN
+          </Button>
+          <Button.Or />
+          <Button as={Link} to="signup">
+            SIGN UP
+          </Button>
+        </Button.Group>
       );
     }
   }

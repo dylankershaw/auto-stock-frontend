@@ -1,31 +1,40 @@
-import { withRouter } from "react-router";
+import { Button } from "semantic-ui-react";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 class ImageNavbar extends Component {
-  // sets text color as white if on root
-  textColor = this.props.history.location.pathname === "/"
-    ? { color: "white" }
-    : null;
+  handleSearchClick = () => {
+    const searchBar = document.getElementById("searchBar");
+    searchBar.placeholder = "";
+    searchBar.focus();
+    searchBar.select();
+  };
 
   render() {
-    if (this.props.currentContainer === "search") {
-      return (
-        <div style={this.textColor}>
-          <strong>SEARCH</strong> |{" "}
-          <Link style={this.textColor} to="/upload">
-            UPLOAD
-          </Link>
-        </div>
-      );
-    } else if (this.props.currentContainer === "upload") {
-      return (
-        <div>
-          <Link to="/">SEARCH</Link> | <strong>UPLOAD</strong>
-        </div>
-      );
-    }
+    return (
+      <Button.Group
+        basic={this.props.isOnRoot ? true : false}
+        inverted={this.props.isOnRoot ? true : false}
+      >
+        <Button
+          as={Link}
+          to="/"
+          active={this.props.isOnRoot ? true : false}
+          onClick={this.props.isOnRoot ? this.handleSearchClick : null}
+        >
+          SEARCH
+        </Button>
+        <Button.Or />
+        <Button
+          as={Link}
+          to="/upload"
+          active={!this.props.isOnRoot ? true : false}
+        >
+          UPLOAD
+        </Button>
+      </Button.Group>
+    );
   }
 }
 
-export default withRouter(ImageNavbar);
+export default ImageNavbar;

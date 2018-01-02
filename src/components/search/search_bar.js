@@ -80,10 +80,11 @@ class SearchBar extends Component {
       <Form onSubmit={this.handleSubmit}>
         {this.isOnRoot() ? (
           <span style={{ position: "absolute", top: "35px" }}>
-            <i class="fa fa-search w3-xxlarge" style={{ color: "white" }} />
+            <i className="fa fa-search w3-xxlarge" style={{ color: "white" }} />
           </span>
         ) : null}
         <input
+          id="searchBar"
           onClick={this.handleClick}
           value={this.state.value}
           onChange={this.handleChange}
