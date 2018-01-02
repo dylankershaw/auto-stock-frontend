@@ -50,10 +50,7 @@ class ImageShow extends Component {
               src={this.props.image.url}
             />
             {this.props.image.user.id === this.props.user.id ? (
-              <DeleteButton
-                style={{ color: "red" }}
-                imageId={this.props.image.id}
-              />
+              <DeleteButton imageId={this.props.image.id} />
             ) : null}
           </div>
           <div>
@@ -73,7 +70,7 @@ class ImageShow extends Component {
       return (
         <div>
           <br />
-          Invalid image ID.<br />
+          Image not found.<br />
         </div>
       );
     }

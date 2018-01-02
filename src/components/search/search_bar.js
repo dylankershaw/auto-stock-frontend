@@ -79,7 +79,7 @@ class SearchBar extends Component {
     return (
       <Form onSubmit={this.handleSubmit}>
         {this.isOnRoot() ? (
-          <span style={{ position: "absolute", top: "50px" }}>
+          <span style={{ position: "absolute", top: "35px" }}>
             <i class="fa fa-search w3-xxlarge" style={{ color: "white" }} />
           </span>
         ) : null}
@@ -94,7 +94,9 @@ class SearchBar extends Component {
                   background: "none",
                   border: "none",
                   fontSize: "50px",
-                  width: "350px"
+                  width: "350px",
+                  height: "95px",
+                  borderBottom: "1px solid white"
                 }
               : null
           }

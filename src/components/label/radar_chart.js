@@ -1,4 +1,5 @@
 import { Radar } from "react-chartjs-2";
+import { Chart } from "chart.js";
 import React from "react";
 
 const RadarChart = ({ labels, findScore }) => {
@@ -7,8 +8,24 @@ const RadarChart = ({ labels, findScore }) => {
 
   return (
     <Radar
-      data={{ labels: labelNames, datasets: [{ data: labelValues }] }}
-      options={{ legend: { display: false } }}
+      data={{
+        labels: labelNames,
+        datasets: [
+          {
+            data: labelValues,
+            borderColor: "#1DF23A",
+            pointBorderColor: "#1DF23A",
+            backgroundColor: Chart.helpers
+              .color("#1DF23A")
+              .alpha(0.3)
+              .rgbString()
+          }
+        ]
+      }}
+      options={{
+        legend: { display: false },
+        scale: { pointLabels: { fontSize: 14 } }
+      }}
     />
   );
 };
