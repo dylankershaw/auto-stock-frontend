@@ -26,20 +26,27 @@ class SearchBar extends Component {
 
     // adds next term letter to placeholder
     const addLetter = () => {
-      placeholder += terms[termIndex][letterIndex];
+      // removes pipe from placeholder and adds if after next letter
+      placeholder =
+        placeholder.slice(0, -1) + terms[termIndex][letterIndex] + "|";
 
       // changes direction if placeholder is entire term
-      placeholder.length === terms[termIndex].length
+      placeholder.length === terms[termIndex].length + 1
         ? (direction = "decreasing")
         : letterIndex++;
     };
 
     // removes last letter from placeholder
     const removeLetter = () => {
-      placeholder = placeholder.slice(0, letterIndex);
+      placeholder = placeholder.slice(0, letterIndex) + "|";
 
-      // changes direction if placeholder is empty
-      placeholder.length === 0 ? (direction = "increasing") : letterIndex--;
+      // changes direction when done with a term and cycles through terms
+      if (placeholder.length === 1) {
+        direction = "increasing";
+        termIndex === terms.length - 1 ? (termIndex = 0) : termIndex++;
+      } else {
+        letterIndex--;
+      }
     };
 
     const animatePlacholder = setInterval(() => {
@@ -47,11 +54,6 @@ class SearchBar extends Component {
 
       // stops animation when field is touched
       !this.state.touched ? this.setState({ placeholder }) : stopAnimation();
-
-      // cycles through terms
-      if (placeholder.length === 0) {
-        termIndex === terms.length - 1 ? (termIndex = 0) : termIndex++;
-      }
     }, 250);
 
     const stopAnimation = () => {
