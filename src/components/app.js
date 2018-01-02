@@ -9,8 +9,7 @@ import ActiveSearchContainer from "./search/active_search_container";
 import ImageShowContainer from "./image/image_show_container";
 import UserShowContainer from "./user/user_show_container";
 import UploadContainer from "./image/upload_container";
-import SignupContainer from "./user/signup_container";
-import LoginContainer from "./user/login_container";
+import AuthContainer from "./user/auth_container";
 
 class App extends Component {
   // checks localStorage token to set user if applicable
@@ -35,13 +34,21 @@ class App extends Component {
             <Route
               path="/login"
               render={() =>
-                this.loggedIn() ? <Redirect to="/" /> : <LoginContainer />
+                this.loggedIn() ? (
+                  <Redirect to="/" />
+                ) : (
+                  <AuthContainer currentContainer="login" />
+                )
               }
             />
             <Route
               path="/signup"
               render={() =>
-                this.loggedIn() ? <Redirect to="/" /> : <SignupContainer />
+                this.loggedIn() ? (
+                  <Redirect to="/" />
+                ) : (
+                  <AuthContainer currentContainer="signup" />
+                )
               }
             />
             <Route
