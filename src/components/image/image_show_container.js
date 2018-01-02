@@ -45,7 +45,7 @@ class ImageShowContainer extends React.Component {
               <AuthNavbar />
             </Grid.Column>
           </Grid.Row>
-          <Grid.Row centerd>
+          <Grid.Row centered>
             <Grid.Column>
               <ImageShow />
             </Grid.Column>

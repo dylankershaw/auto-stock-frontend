@@ -1,6 +1,6 @@
-import { Button, Form, Icon, Input } from "semantic-ui-react";
 import { withRouter } from "react-router";
 import React, { Component } from "react";
+import { Form } from "semantic-ui-react";
 import { connect } from "react-redux";
 
 import { submitSearch } from "../../actions";
@@ -18,7 +18,7 @@ class SearchBar extends Component {
 
   // animates placeholder values with sample search terms
   componentDidMount() {
-    const terms = ["dogs", "space", "mountains"];
+    const terms = ["galaxy", "dogs", "mountains"];
     let termIndex = 0;
     let letterIndex = 0;
     let placeholder = "";
@@ -78,19 +78,30 @@ class SearchBar extends Component {
   render() {
     return (
       <Form onSubmit={this.handleSubmit}>
-        <Input
+        {this.isOnRoot() ? (
+          <span style={{ position: "absolute", top: "50px" }}>
+            <i class="fa fa-search w3-xxlarge" style={{ color: "white" }} />
+          </span>
+        ) : null}
+        <input
           onClick={this.handleClick}
           value={this.state.value}
           onChange={this.handleChange}
-          style={this.isOnRoot() ? { color: "white" } : null}
-          transparent={this.isOnRoot() ? true : false}
+          style={
+            this.isOnRoot()
+              ? {
+                  color: "white",
+                  background: "none",
+                  border: "none",
+                  fontSize: "50px",
+                  width: "350px"
+                }
+              : null
+          }
           placeholder={
             this.isOnRoot() ? this.state.placeholder : "enter a search term"
           }
-          icon="search"
-          iconPosition="left"
           type="text"
-          size="massive"
         />
       </Form>
     );

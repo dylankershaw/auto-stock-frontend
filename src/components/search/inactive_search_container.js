@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import SearchNavbar from "../navigation/search_navbar";
 
 class InactiveSearchContainer extends Component {
-  images = ["1514594277.jpeg", "1514597615.jpeg", "1514597663.jpeg"];
+  images = ["1514857952.jpeg", "1514857915.jpeg", "1514857935.jpeg"];
   url = "https://storage.googleapis.com/auto-stock-189103.appspot.com/";
 
   constructor(props) {
@@ -28,7 +28,7 @@ class InactiveSearchContainer extends Component {
         style={{
           backgroundImage: `url(${this.state.imageUrl})`,
           backgroundSize: "cover",
-          height: parseInt(window.innerHeight) + 14 + "px"
+          height: parseInt(window.innerHeight, 10) + 14 + "px"
         }}
       >
         <SearchNavbar textColor="white" />
