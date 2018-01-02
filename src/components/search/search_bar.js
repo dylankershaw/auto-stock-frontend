@@ -99,7 +99,7 @@ class SearchBar extends Component {
                   height: "95px",
                   borderBottom: "1px solid white"
                 }
-              : null
+              : { border: "2px solid gray", width: "300px", height: "50px" }
           }
           placeholder={
             this.isOnRoot() ? this.state.placeholder : "enter a search term"

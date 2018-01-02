@@ -8,7 +8,7 @@ import ResultShow from "./result_show";
 class ResultsContainer extends Component {
   render() {
     return (
-      <div>
+      <div style={{ margin: "50px" }}>
         {this.props.results.length} results for{" "}
         <strong>{this.props.searchTerm}</strong>
         <br />

@@ -7,7 +7,11 @@ import BarLabel from "../label/bar_label";
 const ResultShow = ({ result }) => (
   <Grid.Column as={Link} to={`/images/${result.id}`}>
     <Container>
-      <Image src={result.url} />
+      <Image
+        centered
+        src={result.url}
+        style={{ height: "200px", width: "300px" }}
+      />
       <BarLabel score={result.score} />
     </Container>
   </Grid.Column>

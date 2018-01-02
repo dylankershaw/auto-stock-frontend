@@ -19,7 +19,7 @@ class ImageNavbar extends Component {
         <Button
           as={Link}
           to="/"
-          active={this.props.isOnRoot ? true : false}
+          active={this.props.currentContainer === "search" ? true : false}
           onClick={this.props.isOnRoot ? this.handleSearchClick : null}
         >
           SEARCH
@@ -28,7 +28,7 @@ class ImageNavbar extends Component {
         <Button
           as={Link}
           to="/upload"
-          active={!this.props.isOnRoot ? true : false}
+          active={this.props.currentContainer === "upload" ? true : false}
         >
           UPLOAD
         </Button>

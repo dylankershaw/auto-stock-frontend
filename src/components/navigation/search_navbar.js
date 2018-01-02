@@ -6,7 +6,8 @@ import { connect } from "react-redux";
 import SearchBar from "../search/search_bar";
 import ImageNavbar from "./image_navbar";
 import AuthNavbar from "./auth_navbar";
-import logo from "../../logo.png";
+import whiteLogo from "../../whiteLogo.png";
+import blackLogo from "../../blackLogo.png";
 
 class SearchNavbar extends Component {
   isOnRoot = () => {
@@ -21,12 +22,13 @@ class SearchNavbar extends Component {
             <ImageNavbar currentContainer="search" isOnRoot={this.isOnRoot()} />
           </Grid.Column>
           <Grid.Column style={{ top: "20%" }}>
-            <img src={logo} height="100px" />
+            <img src={this.isOnRoot() ? whiteLogo : blackLogo} height="100px" />
           </Grid.Column>
           <Grid.Column style={{ top: "50%" }}>
             <AuthNavbar isOnRoot={this.isOnRoot()} />
           </Grid.Column>
         </Grid.Row>
+        <Grid.Row />
         <Grid.Row columns={3}>
           <Grid.Column />
           <Grid.Column>
