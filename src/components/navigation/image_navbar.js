@@ -1,9 +1,13 @@
 import { Button } from "semantic-ui-react";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+
+import { enableTouched } from "../../actions";
 
 class ImageNavbar extends Component {
   handleSearchClick = () => {
+    this.props.enableTouched();
     const searchBar = document.getElementById("searchBar");
     searchBar.placeholder = "";
     searchBar.focus();
@@ -37,4 +41,4 @@ class ImageNavbar extends Component {
   }
 }
 
-export default ImageNavbar;
+export default connect(null, { enableTouched })(ImageNavbar);
