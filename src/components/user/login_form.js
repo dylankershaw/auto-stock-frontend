@@ -6,14 +6,11 @@ import { connect } from "react-redux";
 import { loginUser } from "../../actions";
 
 class LoginForm extends Component {
-  renderField(field) {
-    // abstracts field.meta, field.meta.touched, and field.meta.error
-    const { meta: { touched, error } } = field;
-
+  renderField({ input, label, type, meta: { touched, error } }) {
     return (
       <div>
-        <label>{field.label}</label>
-        <input type="text" {...field.input} />
+        <label>{label}</label>
+        <input type={type} {...input} />
         <div>{touched ? error : ""}</div>
       </div>
     );
@@ -32,12 +29,16 @@ class LoginForm extends Component {
             label="Username"
             name="username"
             component={this.renderField}
+            type="text"
           />
+          <br />
           <Field
             label="Password"
             name="password"
             component={this.renderField}
+            type="password"
           />
+          <br />
           <Button type="submit">Log In</Button>
         </Form>
         {this.props.errors.login ? (
