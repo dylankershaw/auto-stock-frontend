@@ -1,4 +1,4 @@
-import { Grid, Container } from "semantic-ui-react";
+import { Grid, Container, Statistic } from "semantic-ui-react";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
@@ -9,8 +9,10 @@ class ResultsContainer extends Component {
   render() {
     return (
       <div style={{ margin: "50px" }}>
-        {this.props.results.length} results for{" "}
-        <strong>{this.props.searchTerm}</strong>
+        <Statistic>
+          <Statistic.Value>{this.props.results.length}</Statistic.Value>
+          <Statistic.Label>results for {this.props.searchTerm}</Statistic.Label>
+        </Statistic>
         <br />
         <br />
         <Grid doubling columns={5}>

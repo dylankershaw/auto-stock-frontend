@@ -52,7 +52,7 @@ class UploadContainer extends Component {
       );
     } else {
       return (
-        <Grid>
+        <Grid style={{ margin: "20px" }}>
           <Grid.Row columns={3}>
             <Grid.Column>
               {" "}

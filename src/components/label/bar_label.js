@@ -1,6 +1,6 @@
+import { Progress } from "semantic-ui-react";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Progress } from "semantic-ui-react";
 
 class BarLabel extends Component {
   barScore = 0;
@@ -24,14 +24,20 @@ class BarLabel extends Component {
     return (
       <div>
         <Progress
-          label={this.props.name ? this.props.name : null}
+          label={
+            this.props.name ? (
+              <div style={{ color: "black" }}>{this.props.name}</div>
+            ) : null
+          }
+          labelColor="red"
           as={this.props.name ? Link : null}
           to={`/search/${this.props.name}`}
           value={Math.round(this.state.score * 100)}
           progress="percent"
           precision={0}
           total="100"
-          color="green"
+          color="blue"
+          inverted
         />
       </div>
     );

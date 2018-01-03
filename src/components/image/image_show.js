@@ -48,7 +48,7 @@ class ImageShow extends Component {
             <img
               alt={this.props.image.labels[0].name}
               src={this.props.image.url}
-              style={{ maxWidth: "80%" }}
+              style={{ width: "80%" }}
             />
             {this.props.image.user.id === this.props.user.id ? (
               <DeleteButton imageId={this.props.image.id} />
