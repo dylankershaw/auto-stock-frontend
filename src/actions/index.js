@@ -10,6 +10,8 @@ export const SEARCH_IMAGE = "SEARCH_IMAGE";
 export const INVALID_LOGIN = "INVALID_LOGIN";
 export const CLEAR_RESULTS = "CLEAR_RESULTS";
 export const INVALID_SIGNUP = "INVALID_SIGNUP";
+export const ENABLE_TOUCHED = "ENABLE_TOUCHED";
+export const DISABLE_TOUCHED = "DISABLE_TOUCHED";
 export const START_LOADING_BAR = "START_LOADING_BAR";
 
 export function authenticateToken(token) {
@@ -108,4 +110,12 @@ export function clearImage() {
 
 export function clearResults() {
   return { type: CLEAR_RESULTS };
+}
+
+export function enableTouched() {
+  return { type: ENABLE_TOUCHED };
+}
+
+export function disableTouched() {
+  return { type: DISABLE_TOUCHED };
 }

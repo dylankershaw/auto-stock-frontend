@@ -3,13 +3,13 @@ import React, { Component } from "react";
 import { Form } from "semantic-ui-react";
 import { connect } from "react-redux";
 
-import { submitSearch } from "../../actions";
+import { submitSearch, enableTouched, disableTouched } from "../../actions";
 
 class SearchBar extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { placeholder: "", searchTerm: "", touched: false };
+    this.state = { placeholder: "", searchTerm: "" };
   }
 
   isOnRoot = () => {
@@ -53,7 +53,9 @@ class SearchBar extends Component {
       direction === "increasing" ? addLetter() : removeLetter();
 
       // stops animation when field is touched
-      !this.state.touched ? this.setState({ placeholder }) : stopAnimation();
+      !this.props.search.touched
+        ? this.setState({ placeholder })
+        : stopAnimation();
     }, 250);
 
     const stopAnimation = () => {
@@ -63,7 +65,7 @@ class SearchBar extends Component {
   }
 
   handleClick = () => {
-    this.setState({ touched: true });
+    this.props.enableTouched();
   };
 
   handleChange = ev => {
@@ -109,6 +111,18 @@ class SearchBar extends Component {
       </Form>
     );
   }
+
+  componentWillUnmount() {
+    this.props.disableTouched();
+  }
 }
 
-export default withRouter(connect(null, { submitSearch })(SearchBar));
+function mapStateToProps({ search }) {
+  return { search };
+}
+
+export default withRouter(
+  connect(mapStateToProps, { submitSearch, enableTouched, disableTouched })(
+    SearchBar
+  )
+);
