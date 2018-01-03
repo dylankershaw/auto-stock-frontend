@@ -55,7 +55,9 @@ class UploadContainer extends Component {
               <br />
               <Link to="/">{"< SEARCH IMAGES"}</Link>
             </Grid.Column>
-            <Grid.Column />
+            <Grid.Column>
+              <img src={blackLogo} height="100px" />
+            </Grid.Column>
             <Grid.Column>
               <AuthNavbar />
             </Grid.Column>

@@ -5,6 +5,7 @@ import _ from "lodash";
 
 import UserShowNavbar from "../navigation/user_show_navbar";
 import AuthNavbar from "../navigation/auth_navbar";
+import blackLogo from "../../blackLogo.png";
 
 class UserShowContainer extends Component {
   constructor() {
@@ -43,23 +44,15 @@ class UserShowContainer extends Component {
 
       return (
         <Grid container style={{ margin: "20px" }}>
-          <Grid.Row columns={3}>
-            <Grid.Column>
-              <UserShowNavbar />
-            </Grid.Column>
-            <Grid.Column />
-            <Grid.Column>
-              <AuthNavbar />
-            </Grid.Column>
-          </Grid.Row>
-          <Grid.Row>
+          <UserShowNavbar />
+          <Grid.Row centered>
             <Statistic>
               <Statistic.Label>{this.state.user.username}'s</Statistic.Label>
               <Statistic.Value>{sortedImages.length}</Statistic.Value>
               <Statistic.Label>images</Statistic.Label>
             </Statistic>
           </Grid.Row>
-          <Grid.Row>
+          <Grid.Row centered>
             {sortedImages.map(image => (
               <Link key={image.id} to={`/images/${image.id}`}>
                 <img
