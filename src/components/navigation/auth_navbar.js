@@ -3,6 +3,7 @@ import { withRouter } from "react-router";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import _ from "lodash";
 
 import { logoutUser } from "../../actions";
 
@@ -15,7 +16,9 @@ class AuthNavbar extends Component {
     if (Object.keys(this.props.user).length) {
       return (
         <div>
-          <div style={this.textColor}>Welcome {this.props.user.username}</div>
+          <div style={this.textColor}>
+            Welcome, {_.startCase(this.props.user.username)}
+          </div>
           <a style={this.textColor} onClick={this.props.logoutUser}>
             Log Out
           </a>
