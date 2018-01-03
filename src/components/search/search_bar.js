@@ -18,7 +18,7 @@ class SearchBar extends Component {
 
   // animates placeholder values with sample search terms
   componentDidMount() {
-    const terms = ["galaxy", "dogs", "mountains"];
+    const terms = ["galaxy", "mountains", "sunset"];
     let termIndex = 0;
     let letterIndex = 0;
     let placeholder = "";
