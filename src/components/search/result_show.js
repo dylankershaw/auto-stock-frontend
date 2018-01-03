@@ -10,7 +10,7 @@ const ResultShow = ({ result }) => (
       <Image
         centered
         src={result.url}
-        style={{ height: "200px", width: "300px" }}
+        style={{ height: "200px", width: "300px", objectFit: "cover" }}
       />
       <BarLabel score={result.score} />
     </Container>
