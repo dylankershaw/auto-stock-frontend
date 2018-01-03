@@ -20,7 +20,9 @@ class UploadFileForm extends Component {
         multipleFiles={false}
       >
         <Button className="btn">Upload From Computer</Button>
-        <br />Allowable file types: JPG, PNG, GIF
+        <br />
+        <br />
+        <p>Allowable file types: JPG, PNG, GIF</p>
       </ReactFileReader>
     );
   }

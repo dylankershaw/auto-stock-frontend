@@ -8,7 +8,7 @@ import LoginForm from "./login_form";
 
 const AuthContainer = ({ currentContainer }) => {
   return (
-    <Grid textAlign="center">
+    <Grid textAlign="center" style={{ margin: "20px" }}>
       <Grid.Row columns={3}>
         <Grid.Column>
           <Link to="/">{"< BACK TO SEARCH"}</Link>

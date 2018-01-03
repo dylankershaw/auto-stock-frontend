@@ -15,7 +15,11 @@ class UploadContainer extends Component {
   render() {
     if (_.isEmpty(this.props.image)) {
       return (
-        <Dimmer.Dimmable as={Grid} textAlign="center">
+        <Dimmer.Dimmable
+          as={Grid}
+          textAlign="center"
+          style={{ margin: "20px" }}
+        >
           <Dimmer active={this.props.loading}>
             <Loader>Uploading...</Loader>
           </Dimmer>
@@ -48,15 +52,27 @@ class UploadContainer extends Component {
       );
     } else {
       return (
-        <div>
-          <div>
-            <a onClick={this.props.clearImage}>{"< UPLOAD ANOTHER IMAGE"}</a>
-            <br />
-            <Link to="/">{"< SEARCH IMAGES"}</Link>
-          </div>
-          <AuthNavbar />
-          <UploadComplete />
-        </div>
+        <Grid>
+          <Grid.Row columns={3}>
+            <Grid.Column>
+              {" "}
+              <a onClick={this.props.clearImage}>{"< UPLOAD ANOTHER IMAGE"}</a>
+              <br />
+              <Link to="/">{"< SEARCH IMAGES"}</Link>
+            </Grid.Column>
+            <Grid.Column />
+            <Grid.Column>
+              <AuthNavbar />
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row columns={4}>
+            <Grid.Column />
+            <Grid.Column width={8}>
+              <UploadComplete />
+            </Grid.Column>
+            <Grid.Column />
+          </Grid.Row>
+        </Grid>
       );
     }
   }
