@@ -31,7 +31,7 @@ class InactiveSearchContainer extends Component {
           height: parseInt(window.innerHeight, 10) + 14 + "px"
         }}
       >
-        <SearchNavbar textColor="white" />
+        <SearchNavbar />
       </div>
     );
   }

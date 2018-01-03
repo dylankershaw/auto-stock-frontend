@@ -4,12 +4,16 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import _ from "lodash";
 
+import UploadNavbar from "../navigation/upload_navbar";
 import ImageNavbar from "../navigation/image_navbar";
 import AuthNavbar from "../navigation/auth_navbar";
 import { clearImage } from "../../actions/index";
 import UploadFileForm from "./upload_file_form";
 import UploadComplete from "./upload_complete";
 import UploadURLForm from "./upload_url_form";
+import blackLogo from "../../blackLogo.png";
+
+import SearchNavbar from "../navigation/search_navbar";
 
 class UploadContainer extends Component {
   render() {
@@ -23,16 +27,7 @@ class UploadContainer extends Component {
           <Dimmer active={this.props.loading}>
             <Loader>Uploading...</Loader>
           </Dimmer>
-          <Grid.Row columns={3}>
-            <Grid.Column />
-            <Grid.Column>
-              <ImageNavbar currentContainer="upload" />
-            </Grid.Column>
-            <Grid.Column>
-              <AuthNavbar />
-            </Grid.Column>
-          </Grid.Row>
-          <Grid.Row />
+          <UploadNavbar />
           <Grid.Row columns={3}>
             <Grid.Column />
             <Grid.Column>

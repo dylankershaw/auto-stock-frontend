@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Rail } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -54,12 +53,13 @@ class ImageShow extends Component {
               <DeleteButton imageId={this.props.image.id} />
             ) : null}
           </div>
-          <div>
+          <div style={{ margin: "0 auto", width: "370px" }}>
             <ChartToggle
               toggleChartType={this.toggleChartType}
               selection={this.state.chartType}
             />
           </div>
+          <br />
           {this.state.chartType === "bar" ? (
             <BarList labels={sortedLabels} findScore={this.findScore} />
           ) : (

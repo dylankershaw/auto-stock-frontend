@@ -7,6 +7,7 @@ import ImageShowNavbar from "../navigation/image_show_navbar";
 import AuthNavbar from "../navigation/auth_navbar";
 import { clearImage } from "../../actions/index";
 import { showImage } from "../../actions/index";
+import blackLogo from "../../blackLogo.png";
 import ImageShow from "./image_show";
 
 class ImageShowContainer extends React.Component {
@@ -40,7 +41,9 @@ class ImageShowContainer extends React.Component {
             <Grid.Column>
               <ImageShowNavbar />
             </Grid.Column>
-            <Grid.Column />
+            <Grid.Column>
+              <img src={blackLogo} height="100px" />
+            </Grid.Column>
             <Grid.Column>
               <AuthNavbar />
             </Grid.Column>

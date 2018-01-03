@@ -5,7 +5,8 @@ const ChartToggle = ({ toggleChartType, selection }) => (
   <div>
     <Button.Group>
       <Button
-        active={selection === "bar" ? true : false}
+        color="black"
+        basic={selection !== "bar" ? true : false}
         onClick={() => {
           toggleChartType("bar");
         }}
@@ -14,7 +15,8 @@ const ChartToggle = ({ toggleChartType, selection }) => (
       </Button>
       <Button.Or />
       <Button
-        active={selection === "radar" ? true : false}
+        color="black"
+        basic={selection !== "radar" ? true : false}
         onClick={() => {
           toggleChartType("radar");
         }}
