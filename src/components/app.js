@@ -16,7 +16,7 @@ class App extends Component {
   componentDidMount() {
     const token = localStorage.getItem("token");
     // attempts authentication if there is a token
-    if (token.length) {
+    if (token) {
       this.props.authenticateToken(token);
     }
   }

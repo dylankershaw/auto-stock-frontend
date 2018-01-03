@@ -35,7 +35,7 @@ class ImageShowContainer extends React.Component {
       );
     } else {
       return (
-        <Grid container>
+        <Grid container style={{ margin: "20px" }}>
           <Grid.Row centered columns={3}>
             <Grid.Column>
               <ImageShowNavbar />
