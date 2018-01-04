@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Grid, Statistic } from "semantic-ui-react";
+import { Grid, Statistic, Loader } from "semantic-ui-react";
 import _ from "lodash";
 
 import UserShowNavbar from "../navigation/user_show_navbar";
@@ -32,7 +32,7 @@ class UserShowContainer extends Component {
         <div style={{ margin: "20px" }}>
           <AuthNavbar />
           <UserShowNavbar />
-          Loading user...
+          <Loader>Loading User...</Loader>
         </div>
       );
 

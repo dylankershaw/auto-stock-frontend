@@ -1,4 +1,4 @@
-import { Grid } from "semantic-ui-react";
+import { Grid, Loader } from "semantic-ui-react";
 import { connect } from "react-redux";
 import React from "react";
 import _ from "lodash";
@@ -31,7 +31,7 @@ class ImageShowContainer extends React.Component {
               <AuthNavbar />
             </Grid.Column>
           </Grid.Row>
-          Loading Image...
+          <Loader>Loading Image...</Loader>
         </Grid>
       );
     } else {
