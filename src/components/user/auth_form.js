@@ -3,9 +3,9 @@ import { Field, reduxForm } from "redux-form";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { signupUser } from "../../actions";
+import { loginUser, signupUser, clearErrors } from "../../actions";
 
-class SignupForm extends Component {
+class AuthForm extends Component {
   renderField({ input, label, type, meta: { touched, error } }) {
     return (
       <div>
@@ -17,7 +17,9 @@ class SignupForm extends Component {
   }
 
   onSubmit(values) {
-    this.props.signupUser(values);
+    this.props.currentContainer === "login"
+      ? this.props.loginUser(values)
+      : this.props.signupUser(values);
     this.props.reset();
   }
 
@@ -39,13 +41,24 @@ class SignupForm extends Component {
             type="password"
           />
           <br />
-          <Button type="submit">Sign Up</Button>
+          <Button type="submit">
+            {this.props.currentContainer === "login" ? "Log In" : "Sign Up"}
+          </Button>
         </Form>
+        {this.props.errors.login ? (
+          <Message>Invalid username or password.</Message>
+        ) : null}
         {this.props.errors.signup ? (
           <Message>Username already taken.</Message>
         ) : null}
       </div>
     );
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.currentContainer !== this.props.currentContainer) {
+      this.props.clearErrors();
+    }
   }
 }
 
@@ -66,5 +79,5 @@ function mapStateToProps({ errors }) {
 
 export default reduxForm({
   validate,
-  form: "SignupForm"
-})(connect(mapStateToProps, { signupUser })(SignupForm));
+  form: "AuthForm"
+})(connect(mapStateToProps, { loginUser, signupUser, clearErrors })(AuthForm));

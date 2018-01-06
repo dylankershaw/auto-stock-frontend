@@ -5,6 +5,7 @@ export const SHOW_IMAGE = "SHOW_IMAGE";
 export const SET_RESULTS = "SET_RESULTS";
 export const CLEAR_IMAGE = "CLEAR_IMAGE";
 export const LOGOUT_USER = "LOGOUT_USER";
+export const CLEAR_ERRORS = "CLEAR_ERRORS";
 export const DELETE_IMAGE = "DELETE_IMAGE";
 export const SEARCH_IMAGE = "SEARCH_IMAGE";
 export const INVALID_LOGIN = "INVALID_LOGIN";
@@ -118,4 +119,8 @@ export function enableTouched() {
 
 export function disableTouched() {
   return { type: DISABLE_TOUCHED };
+}
+
+export function clearErrors() {
+  return { type: CLEAR_ERRORS };
 }
