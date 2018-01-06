@@ -5,7 +5,6 @@ import _ from "lodash";
 
 import UserShowNavbar from "../navigation/user_show_navbar";
 import AuthNavbar from "../navigation/auth_navbar";
-import blackLogo from "../../blackLogo.png";
 
 class UserShowContainer extends Component {
   constructor() {

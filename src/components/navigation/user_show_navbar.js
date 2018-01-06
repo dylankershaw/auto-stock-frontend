@@ -15,7 +15,7 @@ const UserShowNavbar = () => (
       </div>
     </Grid.Column>
     <Grid.Column>
-      <img src={blackLogo} height="100" />
+      <img alt="tagless logo" src={blackLogo} height="100" />
     </Grid.Column>
     <Grid.Column>
       <AuthNavbar />

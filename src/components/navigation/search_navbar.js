@@ -22,7 +22,11 @@ class SearchNavbar extends Component {
             <ImageNavbar currentContainer="search" isOnRoot={this.isOnRoot()} />
           </Grid.Column>
           <Grid.Column style={{ top: "20%" }}>
-            <img src={this.isOnRoot() ? whiteLogo : blackLogo} height="100px" />
+            <img
+              alt="tagless logo"
+              src={this.isOnRoot() ? whiteLogo : blackLogo}
+              height="100px"
+            />
           </Grid.Column>
           <Grid.Column style={{ top: "50%" }}>
             <AuthNavbar isOnRoot={this.isOnRoot()} />

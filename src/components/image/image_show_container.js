@@ -42,7 +42,7 @@ class ImageShowContainer extends React.Component {
               <ImageShowNavbar />
             </Grid.Column>
             <Grid.Column>
-              <img src={blackLogo} height="100px" />
+              <img alt="tagless logo" src={blackLogo} height="100px" />
             </Grid.Column>
             <Grid.Column>
               <AuthNavbar />

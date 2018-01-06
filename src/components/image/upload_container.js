@@ -5,15 +5,12 @@ import { connect } from "react-redux";
 import _ from "lodash";
 
 import UploadNavbar from "../navigation/upload_navbar";
-import ImageNavbar from "../navigation/image_navbar";
 import AuthNavbar from "../navigation/auth_navbar";
 import { clearImage } from "../../actions/index";
 import UploadFileForm from "./upload_file_form";
 import UploadComplete from "./upload_complete";
 import UploadURLForm from "./upload_url_form";
 import blackLogo from "../../blackLogo.png";
-
-import SearchNavbar from "../navigation/search_navbar";
 
 class UploadContainer extends Component {
   render() {
@@ -56,7 +53,7 @@ class UploadContainer extends Component {
               <Link to="/">{"< SEARCH IMAGES"}</Link>
             </Grid.Column>
             <Grid.Column>
-              <img src={blackLogo} height="100px" />
+              <img alt="tagless logo" src={blackLogo} height="100px" />
             </Grid.Column>
             <Grid.Column>
               <AuthNavbar />

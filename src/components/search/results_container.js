@@ -1,4 +1,4 @@
-import { Grid, Container, Statistic } from "semantic-ui-react";
+import { Grid, Statistic } from "semantic-ui-react";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
