@@ -81,10 +81,10 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <Form onSubmit={this.handleSubmit}>
+      <Form className="searchBar" onSubmit={this.handleSubmit}>
         {this.isOnRoot() ? (
-          <span style={{ position: "absolute", top: "35px" }}>
-            <i className="fa fa-search w3-xxlarge" style={{ color: "white" }} />
+          <span>
+            <i className="fa fa-search w3-xxlarge" />
           </span>
         ) : null}
         <input
@@ -92,19 +92,7 @@ class SearchBar extends Component {
           onClick={this.handleClick}
           value={this.state.value}
           onChange={this.handleChange}
-          style={
-            this.isOnRoot()
-              ? {
-                  color: "white",
-                  background: "none",
-                  border: "none",
-                  fontSize: "50px",
-                  width: "350px",
-                  height: "95px",
-                  borderBottom: "1px solid white"
-                }
-              : { border: "2px solid gray", width: "300px", height: "50px" }
-          }
+          className={this.isOnRoot() ? "onRoot" : "offRoot"}
           placeholder={
             this.isOnRoot() ? this.state.placeholder : "enter a search term"
           }

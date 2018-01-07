@@ -49,13 +49,14 @@ class ImageShow extends Component {
             <img
               alt={this.props.image.labels[0].name}
               src={this.props.image.url}
-              style={{ width: "80%" }}
+              className="imageShowImage"
             />
+            {/* renders delete button if user owns the image */}
             {this.props.image.user.id === this.props.user.id ? (
               <DeleteButton imageId={this.props.image.id} />
             ) : null}
           </div>
-          <div style={{ margin: "0 auto", width: "370px" }}>
+          <div className="chartToggle">
             <ChartToggle
               toggleChartType={this.toggleChartType}
               selection={this.state.chartType}

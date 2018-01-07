@@ -27,7 +27,7 @@ class UserShowContainer extends Component {
     // renders if fetch has not returned a response yet
     if (_.isEmpty(this.state.user)) {
       return (
-        <div style={{ margin: "20px" }}>
+        <div className="thinMargin">
           <UserShowNavbar />
           <Loader>Loading User...</Loader>
         </div>
@@ -40,7 +40,7 @@ class UserShowContainer extends Component {
       });
 
       return (
-        <Grid container style={{ margin: "20px" }}>
+        <Grid container className="thinMargin">
           <UserShowNavbar />
           <Grid.Row centered>
             <Statistic>
@@ -56,7 +56,7 @@ class UserShowContainer extends Component {
                   alt=""
                   src={image.url}
                   height="225px"
-                  style={{ margin: "2px" }}
+                  className="tinyMargin"
                 />
               </Link>
             ))}
@@ -65,7 +65,7 @@ class UserShowContainer extends Component {
       );
     } else {
       return (
-        <div style={{ margin: "20px" }}>
+        <div className="thinMargin">
           {this.state.user.username} has not uploaded any images.
         </div>
       );

@@ -23,7 +23,7 @@ class ImageShowContainer extends React.Component {
 
   render() {
     return (
-      <Grid container style={{ margin: "20px" }}>
+      <Grid container className="thinMargin">
         <Grid.Row centered columns={3}>
           <Grid.Column>
             <ImageShowNavbar />

@@ -6,7 +6,7 @@ import AuthNavbar from "../navigation/auth_navbar";
 import blackLogo from "../../logos/blackLogo.png";
 
 const UserShowNavbar = () => (
-  <Grid.Row columns={3} centered style={{ left: "10%" }}>
+  <Grid.Row columns={3} centered className="userShowNavbar">
     <Grid.Column>
       <Link to="/">{"< SEARCH ALL IMAGES"}</Link>
       <br />

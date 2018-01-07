@@ -8,7 +8,7 @@ import UploadURLForm from "./upload_url_form";
 
 const PreUpload = ({ loading }) => {
   return (
-    <Dimmer.Dimmable as={Grid} textAlign="center" style={{ margin: "20px" }}>
+    <Dimmer.Dimmable as={Grid} textAlign="center" className="thinMargin">
       <Dimmer active={loading}>
         <Loader>Uploading...</Loader>
       </Dimmer>

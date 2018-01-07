@@ -26,7 +26,7 @@ class BarLabel extends Component {
         <Progress
           label={
             this.props.name ? (
-              <div style={{ color: "black" }}>{this.props.name}</div>
+              <div className="barLabelName">{this.props.name}</div>
             ) : null
           }
           labelColor="red"

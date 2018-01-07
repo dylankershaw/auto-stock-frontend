@@ -26,7 +26,7 @@ class DeleteButton extends Component {
 
   render() {
     return (
-      <div style={{ position: "relative", bottom: "35px" }}>
+      <div className="deleteButton">
         <Button icon="delete" onClick={this.handleClick} />
         <Confirm
           open={this.state.open}

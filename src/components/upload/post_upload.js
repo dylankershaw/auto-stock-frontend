@@ -10,7 +10,7 @@ import UploadComplete from "./upload_complete";
 
 const PostUpload = ({ clearImage }) => {
   return (
-    <Grid style={{ margin: "20px" }}>
+    <Grid className="thinMargin">
       <Grid.Row columns={3}>
         <Grid.Column>
           {" "}

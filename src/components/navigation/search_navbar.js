@@ -17,17 +17,17 @@ const SearchNavbar = ({ history }) => {
   return (
     <Grid textAlign="center">
       <Grid.Row columns={3}>
-        <Grid.Column style={{ top: "50%" }}>
+        <Grid.Column className="farColumn">
           <ImageNavbar currentContainer="search" isOnRoot={isOnRoot()} />
         </Grid.Column>
-        <Grid.Column style={{ top: "20%" }}>
+        <Grid.Column className="closeColumn">
           <img
             alt="tagless logo"
             src={isOnRoot() ? whiteLogo : blackLogo}
             height="100px"
           />
         </Grid.Column>
-        <Grid.Column style={{ top: "50%" }}>
+        <Grid.Column className="farColumn">
           <AuthNavbar isOnRoot={isOnRoot()} />
         </Grid.Column>
       </Grid.Row>

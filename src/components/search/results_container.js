@@ -8,7 +8,7 @@ import ResultShow from "./result_show";
 class ResultsContainer extends Component {
   render() {
     return (
-      <div style={{ margin: "50px" }}>
+      <div className="resultsContainer">
         <Statistic>
           <Statistic.Value>{this.props.results.length}</Statistic.Value>
           <Statistic.Label>results for {this.props.searchTerm}</Statistic.Label>

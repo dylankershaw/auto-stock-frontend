@@ -4,7 +4,7 @@ import BarLabel from "./bar_label";
 // renders BarLabel for each label
 const BarList = ({ labels, findScore }) => {
   return (
-    <div style={{ maxWidth: "80%" }}>
+    <div className="barList">
       {labels.map(label => {
         return (
           <div key={label.id}>
