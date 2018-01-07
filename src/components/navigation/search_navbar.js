@@ -6,8 +6,8 @@ import { connect } from "react-redux";
 import SearchBar from "../search/search_bar";
 import ImageNavbar from "./image_navbar";
 import AuthNavbar from "./auth_navbar";
-import whiteLogo from "../../whiteLogo.png";
-import blackLogo from "../../blackLogo.png";
+import whiteLogo from "../../logos/whiteLogo.png";
+import blackLogo from "../../logos/blackLogo.png";
 
 class SearchNavbar extends Component {
   isOnRoot = () => {

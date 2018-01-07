@@ -3,7 +3,7 @@ import { Grid } from "semantic-ui-react";
 
 import ImageNavbar from "./image_navbar";
 import AuthNavbar from "./auth_navbar";
-import blackLogo from "../../blackLogo.png";
+import blackLogo from "../../logos/blackLogo.png";
 
 const UploadNavbar = () => {
   return (

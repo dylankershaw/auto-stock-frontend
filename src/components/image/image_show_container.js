@@ -7,7 +7,7 @@ import ImageShowNavbar from "../navigation/image_show_navbar";
 import AuthNavbar from "../navigation/auth_navbar";
 import { clearImage } from "../../actions/index";
 import { showImage } from "../../actions/index";
-import blackLogo from "../../blackLogo.png";
+import blackLogo from "../../logos/blackLogo.png";
 import ImageShow from "./image_show";
 
 class ImageShowContainer extends React.Component {

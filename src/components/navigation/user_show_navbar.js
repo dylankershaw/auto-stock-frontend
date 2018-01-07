@@ -3,7 +3,7 @@ import { Grid } from "semantic-ui-react";
 import React from "react";
 
 import AuthNavbar from "../navigation/auth_navbar";
-import blackLogo from "../../blackLogo.png";
+import blackLogo from "../../logos/blackLogo.png";
 
 const UserShowNavbar = () => (
   <Grid.Row columns={3} centered style={{ left: "10%" }}>

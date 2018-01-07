@@ -10,7 +10,7 @@ import { clearImage } from "../../actions/index";
 import UploadFileForm from "./upload_file_form";
 import UploadComplete from "./upload_complete";
 import UploadURLForm from "./upload_url_form";
-import blackLogo from "../../blackLogo.png";
+import blackLogo from "../../logos/blackLogo.png";
 
 class UploadContainer extends Component {
   render() {
