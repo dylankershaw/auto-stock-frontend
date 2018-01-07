@@ -63,8 +63,6 @@ class UserShowContainer extends Component {
           </Grid.Row>
         </Grid>
       );
-
-      // renders if user does not have any images
     } else {
       return (
         <div style={{ margin: "20px" }}>

@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import { enableTouched } from "../../actions";
 
 const ImageNavbar = ({ enableTouched, isOnRoot, currentContainer }) => {
+  // disables placeholder animation and moves cursor to SearchBar
   const handleSearchClick = () => {
     enableTouched();
     const searchBar = document.getElementById("searchBar");

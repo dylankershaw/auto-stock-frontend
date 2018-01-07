@@ -23,11 +23,13 @@ class ImageShow extends Component {
     }).relevancyScore;
   };
 
+  // toggles between bar and radar charts
   toggleChartType = chartType => {
     this.setState({ chartType });
   };
 
   render() {
+    // renders if valid image is returned from fetch
     if (this.props.image.id) {
       const imageUser = this.props.image.user;
 

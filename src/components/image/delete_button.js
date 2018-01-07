@@ -11,14 +11,17 @@ class DeleteButton extends Component {
     this.state = { open: false };
   }
 
+  // opens delete confirmation box
   handleClick = () => this.setState({ open: true });
 
+  // triggers delete image action creator and redirects to root
   handleConfirm = () => {
     this.setState({ open: false });
     this.props.deleteImage(this.props.imageId);
     this.props.history.push("/");
   };
 
+  // closes delete confirmation box
   handleCancel = () => this.setState({ open: false });
 
   render() {

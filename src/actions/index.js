@@ -15,6 +15,74 @@ export const ENABLE_TOUCHED = "ENABLE_TOUCHED";
 export const DISABLE_TOUCHED = "DISABLE_TOUCHED";
 export const START_LOADING_BAR = "START_LOADING_BAR";
 
+//// IMAGE REDUCER ACTION CREATORS ////
+
+export function uploadImageUrl(url, userId) {
+  return function(dispatch) {
+    dispatch({ type: START_LOADING_BAR });
+    apiHelpers.postImageUrl(url, userId).then(data => {
+      return dispatch({ type: SHOW_IMAGE, payload: data });
+    });
+  };
+}
+
+export function uploadImageFile(image, userId) {
+  return function(dispatch) {
+    dispatch({ type: START_LOADING_BAR });
+    apiHelpers.postImageFile(image, userId).then(data => {
+      return dispatch({ type: SHOW_IMAGE, payload: data });
+    });
+  };
+}
+
+export function showImage(imageId) {
+  return function(dispatch) {
+    apiHelpers.getImage(imageId).then(data => {
+      return dispatch({ type: SHOW_IMAGE, payload: data });
+    });
+  };
+}
+
+export function deleteImage(imageId) {
+  return function(dispatch) {
+    apiHelpers.deleteImage(imageId).then(data => {
+      return dispatch({ type: CLEAR_IMAGE });
+    });
+  };
+}
+
+export function clearImage() {
+  return { type: CLEAR_IMAGE };
+}
+
+//// SEARCH REDUCER ACTION CREATORS ////
+
+export function submitSearch(term) {
+  return function(dispatch) {
+    apiHelpers.getSearchResults(term).then(data => {
+      if (!data.error) {
+        return dispatch({ type: SET_RESULTS, payload: data });
+      } else {
+        return dispatch({ type: CLEAR_RESULTS });
+      }
+    });
+  };
+}
+
+export function clearResults() {
+  return { type: CLEAR_RESULTS };
+}
+
+export function enableTouched() {
+  return { type: ENABLE_TOUCHED };
+}
+
+export function disableTouched() {
+  return { type: DISABLE_TOUCHED };
+}
+
+//// USER REDUCER ACTION CREATORS ////
+
 export function authenticateToken(token) {
   return function(dispatch) {
     apiHelpers.checkToken(token).then(data => {
@@ -59,67 +127,7 @@ export function logoutUser() {
   return { type: LOGOUT_USER };
 }
 
-export function submitSearch(term) {
-  return function(dispatch) {
-    apiHelpers.getSearchResults(term).then(data => {
-      if (!data.error) {
-        return dispatch({ type: SET_RESULTS, payload: data });
-      } else {
-        return dispatch({ type: CLEAR_RESULTS });
-      }
-    });
-  };
-}
-
-export function uploadImageUrl(url, userId) {
-  return function(dispatch) {
-    dispatch({ type: START_LOADING_BAR });
-    apiHelpers.postImageUrl(url, userId).then(data => {
-      return dispatch({ type: SHOW_IMAGE, payload: data });
-    });
-  };
-}
-
-export function uploadImageFile(image, userId) {
-  return function(dispatch) {
-    dispatch({ type: START_LOADING_BAR });
-    apiHelpers.postImageFile(image, userId).then(data => {
-      return dispatch({ type: SHOW_IMAGE, payload: data });
-    });
-  };
-}
-
-export function showImage(imageId) {
-  return function(dispatch) {
-    apiHelpers.getImage(imageId).then(data => {
-      return dispatch({ type: SHOW_IMAGE, payload: data });
-    });
-  };
-}
-
-export function deleteImage(imageId) {
-  return function(dispatch) {
-    apiHelpers.deleteImage(imageId).then(data => {
-      return dispatch({ type: CLEAR_IMAGE });
-    });
-  };
-}
-
-export function clearImage() {
-  return { type: CLEAR_IMAGE };
-}
-
-export function clearResults() {
-  return { type: CLEAR_RESULTS };
-}
-
-export function enableTouched() {
-  return { type: ENABLE_TOUCHED };
-}
-
-export function disableTouched() {
-  return { type: DISABLE_TOUCHED };
-}
+//// ERRORS REDUCER ACTION CREATORS ////
 
 export function clearErrors() {
   return { type: CLEAR_ERRORS };

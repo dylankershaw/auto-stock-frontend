@@ -1,6 +1,7 @@
 import React from "react";
 import BarLabel from "./bar_label";
 
+// renders BarLabel for each label
 const BarList = ({ labels, findScore }) => {
   return (
     <div style={{ maxWidth: "80%" }}>

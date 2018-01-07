@@ -2,6 +2,7 @@ import { Radar } from "react-chartjs-2";
 import { Chart } from "chart.js";
 import React from "react";
 
+// renders chart.js radar chart for label relevancy scores
 const RadarChart = ({ labels, findScore }) => {
   const labelNames = labels.map(label => label.name);
   const labelValues = labels.map(label => findScore(label));

@@ -7,7 +7,7 @@ import { uploadImageFile } from "../../actions";
 
 const UploadFileForm = ({ uploadImageFile, user }) => {
   const handleImage = image => {
-    // passes in only the first file (if there are multiple)
+    // passes in only the first file (if user tries to upload multiple)
     uploadImageFile(image, user.id);
   };
 

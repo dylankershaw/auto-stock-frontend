@@ -5,16 +5,18 @@ import _ from "lodash";
 
 import ImageShowNavbar from "../navigation/image_show_navbar";
 import AuthNavbar from "../navigation/auth_navbar";
+import blackLogo from "../../logos/blackLogo.png";
 import { clearImage } from "../../actions/index";
 import { showImage } from "../../actions/index";
-import blackLogo from "../../logos/blackLogo.png";
 import ImageShow from "./image_show";
 
 class ImageShowContainer extends React.Component {
+  // adds image to store
   componentDidMount() {
     this.props.showImage(this.props.match.params.id);
   }
 
+  // removes image from store
   componentWillUnmount() {
     this.props.clearImage();
   }

@@ -6,7 +6,7 @@ import ResultsContainer from "./results_container";
 import { submitSearch } from "../../actions";
 
 class ActiveSearchContainer extends React.Component {
-  // renders results when user manually inputs url
+  // renders results based on url
   componentDidMount() {
     const searchTerm = this.props.match.params.searchTerm;
     this.props.submitSearch(searchTerm);
