@@ -24,6 +24,17 @@ class SearchBar extends Component {
     let placeholder = "";
     let direction = "increasing";
 
+    const animatePlacholder = setInterval(() => {
+      direction === "increasing" ? addLetter() : removeLetter();
+
+      // stops animation when field is touched
+      !this.props.search.touched
+        ? this.setState({
+            placeholder
+          })
+        : stopAnimation();
+    }, 250);
+
     // adds next term letter to placeholder
     const addLetter = () => {
       // removes pipe from placeholder and adds if after next letter
@@ -48,15 +59,6 @@ class SearchBar extends Component {
         letterIndex--;
       }
     };
-
-    const animatePlacholder = setInterval(() => {
-      direction === "increasing" ? addLetter() : removeLetter();
-
-      // stops animation when field is touched
-      !this.props.search.touched
-        ? this.setState({ placeholder })
-        : stopAnimation();
-    }, 250);
 
     const stopAnimation = () => {
       clearInterval(animatePlacholder);

@@ -1,47 +1,43 @@
 import { Button } from "semantic-ui-react";
 import { withRouter } from "react-router";
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import _ from "lodash";
 
 import { logoutUser } from "../../actions";
 
-class AuthNavbar extends Component {
+const AuthNavbar = ({ user, isOnRoot, logoutUser }) => {
   // sets text color as white if on root
-  textColor = this.props.isOnRoot ? { color: "white" } : null;
+  const textColor = isOnRoot ? { color: "white" } : null;
 
-  render() {
-    // renders if there is a logged in user
-    if (Object.keys(this.props.user).length) {
-      return (
-        <div>
-          <div style={this.textColor}>
-            Welcome, {_.startCase(this.props.user.username)}
-          </div>
-          <a style={this.textColor} onClick={this.props.logoutUser}>
-            Log Out
-          </a>
-        </div>
-      );
-    } else {
-      return (
-        <Button.Group
-          basic={this.props.isOnRoot ? true : false}
-          inverted={this.props.isOnRoot ? true : false}
-        >
-          <Button as={Link} to="login">
-            LOG IN
-          </Button>
-          <Button.Or />
-          <Button as={Link} to="signup">
-            SIGN UP
-          </Button>
-        </Button.Group>
-      );
-    }
+  // renders if there is a logged in user
+  if (Object.keys(user).length) {
+    return (
+      <div>
+        <div style={textColor}>Welcome, {_.startCase(user.username)}</div>
+        <a style={textColor} onClick={logoutUser}>
+          Log Out
+        </a>
+      </div>
+    );
+  } else {
+    return (
+      <Button.Group
+        basic={isOnRoot ? true : false}
+        inverted={isOnRoot ? true : false}
+      >
+        <Button as={Link} to="login">
+          LOG IN
+        </Button>
+        <Button.Or />
+        <Button as={Link} to="signup">
+          SIGN UP
+        </Button>
+      </Button.Group>
+    );
   }
-}
+};
 
 function mapStateToprops({ user }) {
   return { user };
