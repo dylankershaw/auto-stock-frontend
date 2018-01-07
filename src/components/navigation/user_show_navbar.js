@@ -6,13 +6,11 @@ import AuthNavbar from "../navigation/auth_navbar";
 import blackLogo from "../../blackLogo.png";
 
 const UserShowNavbar = () => (
-  <Grid.Row columns={3} centered>
+  <Grid.Row columns={3} centered style={{ left: "10%" }}>
     <Grid.Column>
-      <div>
-        <Link to="/">{"< SEARCH ALL IMAGES"}</Link>
-        <br />
-        <Link to="/upload">{"< UPLOAD AN IMAGE"}</Link>
-      </div>
+      <Link to="/">{"< SEARCH ALL IMAGES"}</Link>
+      <br />
+      <Link to="/upload">{"< UPLOAD AN IMAGE"}</Link>
     </Grid.Column>
     <Grid.Column>
       <img alt="tagless logo" src={blackLogo} height="100" />

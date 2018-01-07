@@ -3,9 +3,9 @@ import { combineReducers } from "redux";
 
 import loadingReducer from "./loading";
 import searchReducer from "./search";
+import errorsReducer from "./errors";
 import imageReducer from "./image";
 import userReducer from "./user";
-import errorsReducer from "./errors";
 
 const rootReducer = combineReducers({
   search: searchReducer,

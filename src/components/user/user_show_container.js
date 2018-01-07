@@ -4,7 +4,6 @@ import { Grid, Statistic, Loader } from "semantic-ui-react";
 import _ from "lodash";
 
 import UserShowNavbar from "../navigation/user_show_navbar";
-import AuthNavbar from "../navigation/auth_navbar";
 
 class UserShowContainer extends Component {
   constructor() {
@@ -29,7 +28,6 @@ class UserShowContainer extends Component {
     if (_.isEmpty(this.state.user)) {
       return (
         <div style={{ margin: "20px" }}>
-          <AuthNavbar />
           <UserShowNavbar />
           <Loader>Loading User...</Loader>
         </div>
