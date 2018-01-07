@@ -1,9 +1,9 @@
 import React from "react";
 import { Grid } from "semantic-ui-react";
 
+import blackLogo from "../../logos/blackLogo.png";
 import ImageNavbar from "./image_navbar";
 import AuthNavbar from "./auth_navbar";
-import blackLogo from "../../logos/blackLogo.png";
 
 const UploadNavbar = () => {
   return (

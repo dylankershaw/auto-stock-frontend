@@ -1,7 +1,7 @@
 import { Label } from "semantic-ui-react";
 import React from "react";
 
-import ImageShow from "./image_show";
+import ImageShow from "../image/image_show";
 
 const UploadComplete = ({ image }) => {
   return (

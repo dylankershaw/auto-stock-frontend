@@ -8,8 +8,8 @@ import DeleteButton from "./delete_button";
 import BarList from "../label/bar_list";
 
 class ImageShow extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       chartType: "bar"

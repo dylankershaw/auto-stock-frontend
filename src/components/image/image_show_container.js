@@ -20,42 +20,30 @@ class ImageShowContainer extends React.Component {
   }
 
   render() {
-    if (_.isEmpty(this.props.image)) {
-      return (
-        <Grid container>
-          <Grid.Row>
-            <Grid.Column floated="left">
-              <ImageShowNavbar />
-            </Grid.Column>
-            <Grid.Column floated="right">
-              <AuthNavbar />
-            </Grid.Column>
-          </Grid.Row>
-          <Loader>Loading Image...</Loader>
-        </Grid>
-      );
-    } else {
-      return (
-        <Grid container style={{ margin: "20px" }}>
-          <Grid.Row centered columns={3}>
-            <Grid.Column>
-              <ImageShowNavbar />
-            </Grid.Column>
-            <Grid.Column>
-              <img alt="tagless logo" src={blackLogo} height="100px" />
-            </Grid.Column>
-            <Grid.Column>
-              <AuthNavbar />
-            </Grid.Column>
-          </Grid.Row>
-          <Grid.Row centered>
-            <Grid.Column>
+    return (
+      <Grid container style={{ margin: "20px" }}>
+        <Grid.Row centered columns={3}>
+          <Grid.Column>
+            <ImageShowNavbar />
+          </Grid.Column>
+          <Grid.Column>
+            <img alt="tagless logo" src={blackLogo} height="100px" />
+          </Grid.Column>
+          <Grid.Column>
+            <AuthNavbar />
+          </Grid.Column>
+        </Grid.Row>
+        <Grid.Row centered>
+          <Grid.Column>
+            {_.isEmpty(this.props.image) ? (
+              <Loader>Loading Image...</Loader>
+            ) : (
               <ImageShow />
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      );
-    }
+            )}
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
+    );
   }
 }
 

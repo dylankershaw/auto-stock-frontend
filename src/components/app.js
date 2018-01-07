@@ -8,7 +8,7 @@ import InactiveSearchContainer from "./search/inactive_search_container";
 import ActiveSearchContainer from "./search/active_search_container";
 import ImageShowContainer from "./image/image_show_container";
 import UserShowContainer from "./user/user_show_container";
-import UploadContainer from "./image/upload_container";
+import UploadContainer from "./upload/upload_container";
 import AuthContainer from "./user/auth_container";
 
 class App extends Component {
