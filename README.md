@@ -24,7 +24,7 @@ An auto-indexing photo site that assign relevant labels to images on upload. Use
 * Base64 image encoding (front-end) and decoding (back-end)
 * Automatic AI-based label assignment of images
 * User authentication and cookie storage through JSON Web Tokens (JWT)
-	* Logs users in on page load if they have a valid token in their localStorage
+	* Logs users in on page load if their localStorage has a valid token
 * Automatic backup of every image via Google Cloud Storage
 * Users can upload images from their computer or by entering a url
 * Dynamic handling of image downloads allows for multiple file types
