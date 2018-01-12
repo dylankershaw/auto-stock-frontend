@@ -30,3 +30,6 @@ An auto-indexing photo site that assign relevant labels to images on upload. Use
 * Dynamic handling of image downloads allows for multiple file types
 
 ## Demo
+![placeholder animation](https://media.giphy.com/media/3oFzlWJtpswtKtVo4w/giphy.gif)
+
+Auto-animating placeholder prompts users to enter a search term and background loops through an array of images every five seconds. [See here](https://github.com/dylankershaw/tagless-frontend/blob/master/src/components/search/search_bar.js) and [here](https://github.com/dylankershaw/tagless-frontend/blob/master/src/components/search/inactive_search_container.js) for code.
