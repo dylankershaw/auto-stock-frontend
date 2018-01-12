@@ -53,7 +53,7 @@ Or from a user's computer. Images are auto-tagged on upload in a matter of secon
 
 <br />
 
-![results show](https://media.giphy.com/media/3oFzmghFHML4uyo8rS/giphy.gif)
+![results show](https://media.giphy.com/media/l0HU90dtJuWIg4Nqg/giphy.gif)
 
 Search results are sorted by relevancy score. (e.g. searching for "clouds" displays images very likely to contain clouds at the top and those less likely to contain clouds toward the bottom)
 
@@ -69,9 +69,13 @@ Clicking an image displays all of its labels, sorted by relevancy score. In this
 
 Labels can be view as bar charts or in a radar chart.
 
+<br />
+
 ![tag click](https://media.giphy.com/media/3oFzmngqhpovwC5Cms/giphy.gif)
 
 Clicking a label displays all other images that have been tagged with that keyword.
+
+<br />
 
 ![user show](https://media.giphy.com/media/l49JI7zSZPueeqDcI/giphy.gif)
 
