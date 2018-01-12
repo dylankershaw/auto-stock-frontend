@@ -53,7 +53,7 @@ Or from a user's computer. Images are auto-tagged on upload in a matter of secon
 
 <br />
 
-![results show](https://media.giphy.com/media/l0HU90dtJuWIg4Nqg/giphy.gif)
+![results show](https://thumbs.gfycat.com/EachBackAtlanticsharpnosepuffer-size_restricted.gif)
 
 Search results are sorted by relevancy score. (e.g. searching for "clouds" displays images very likely to contain clouds at the top and those less likely to contain clouds toward the bottom)
 
