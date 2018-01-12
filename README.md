@@ -33,3 +33,9 @@ An auto-indexing photo site that assign relevant labels to images on upload. Use
 ![placeholder animation](https://media.giphy.com/media/3oFzlWJtpswtKtVo4w/giphy.gif)
 
 Auto-animating placeholder prompts users to enter a search term and background loops through an array of images every five seconds. [See here](https://github.com/dylankershaw/tagless-frontend/blob/master/src/components/search/search_bar.js) and [here](https://github.com/dylankershaw/tagless-frontend/blob/master/src/components/search/inactive_search_container.js) for code.
+
+<br/>
+
+![search from root](https://media.giphy.com/media/3oFzmolvlBML6YqxDq/giphy.gif)
+
+Placeholder animation disables when search bar is clicked. Search returns all images than have been tagged with a specified keyword (e.g. clouds) and sorts them by their relevancy score.
