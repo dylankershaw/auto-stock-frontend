@@ -1,5 +1,5 @@
 # Tagless
-An auto-indexing photo site that assign relevant labels to photos on upload. In other words, users can upload an image and the app will automatically tag it by using Google Cloud's [Vision API](https://cloud.google.com/vision/).
+An auto-indexing photo site that assign relevant labels to images on upload. In other words, users can upload an image and the app will automatically tag it by using Google Cloud's [Vision API](https://cloud.google.com/vision/).
 
 ## Key Technologies, Packages, and Gems
 * Front End
