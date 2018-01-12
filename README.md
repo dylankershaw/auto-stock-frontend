@@ -50,3 +50,15 @@ Images can be uploaded by entering a third-party URL.
 ![file upload](https://media.giphy.com/media/l49JYK801LY9uBTJC/giphy.gif)
 
 Or from a user's computer. Images are auto-tagged on upload in a matter of seconds. [See here](https://github.com/dylankershaw/tagless-backend/blob/master/app/controllers/api/v1/images_controller.rb) for back-end image controller (upload code is in the "create" action).
+
+<br />
+
+![results show](https://media.giphy.com/media/3oFzmghFHML4uyo8rS/giphy.gif)
+
+Search results are sorted by relevancy score. (e.g. searching for "clouds" displays images very likely to contain clouds at the top and those less likely to contain clouds toward the bottom)
+
+<br />
+
+![image show](https://media.giphy.com/media/l49JBGmkwB57hdJIs/giphy.gif)
+
+Clicking an image displays all of its labels, sorted by relevancy score. In this example, "dog" appears toward the top with a score of 97% whereas "grass" appears toward the bottom with a score of 53%.
