@@ -19,7 +19,6 @@ An auto-indexing photo site that assign relevant labels to images on upload. Use
 	* Mini Magick
 	* JWT
 
-
 ## Core Features
 * Base64 image encoding (front-end) and decoding (back-end)
 * Automatic AI-based label assignment of images
@@ -31,6 +30,7 @@ An auto-indexing photo site that assign relevant labels to images on upload. Use
 
 ## Demo
 ![placeholder animation](https://media.giphy.com/media/3oFzlWJtpswtKtVo4w/giphy.gif)
+
 Auto-animating placeholder prompts users to enter a search term and background loops through an array of images every five seconds. [See here](https://github.com/dylankershaw/tagless-frontend/blob/master/src/components/search/search_bar.js) and [here](https://github.com/dylankershaw/tagless-frontend/blob/master/src/components/search/inactive_search_container.js) for code.
 
 <br/>
@@ -38,3 +38,15 @@ Auto-animating placeholder prompts users to enter a search term and background l
 ![search from root](https://media.giphy.com/media/3oFzmolvlBML6YqxDq/giphy.gif)
 
 Placeholder animation disables when search bar is clicked. Search returns all images than have been tagged with a specified keyword (e.g. clouds) and sorts them by their relevancy score.
+
+<br />
+
+![url upload](https://media.giphy.com/media/26CaMGy5EBtCgcDMA/giphy.gif)
+
+Images can be uploaded by entering a third-party URL.
+
+<br />
+
+![file upload](https://media.giphy.com/media/l49JYK801LY9uBTJC/giphy.gif)
+
+Or from a user's computer. Images are auto-tagged on upload in a matter of seconds. [See here](https://github.com/dylankershaw/tagless-backend/blob/master/app/controllers/api/v1/images_controller.rb) for back-end image controller (upload code is in the "create" action).
