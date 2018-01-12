@@ -62,3 +62,17 @@ Search results are sorted by relevancy score. (e.g. searching for "clouds" displ
 ![image show](https://media.giphy.com/media/l49JBGmkwB57hdJIs/giphy.gif)
 
 Clicking an image displays all of its labels, sorted by relevancy score. In this example, "dog" appears toward the top with a score of 97% whereas "grass" appears toward the bottom with a score of 53%.
+
+<br />
+
+![radar chart](https://media.giphy.com/media/l49JBsrwzKajoc2ju/giphy.gif)
+
+Labels can be view as bar charts or in a radar chart.
+
+![tag click](https://media.giphy.com/media/3oFzmngqhpovwC5Cms/giphy.gif)
+
+Clicking a label displays all other images that have been tagged with that keyword.
+
+![user show](https://media.giphy.com/media/l49JI7zSZPueeqDcI/giphy.gif)
+
+Clicking a username displays all images uploaded by that user.
